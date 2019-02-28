@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route, NavLink } from "react-router-dom";
-import Dashbord from "./components/Dashbord.js";
+import Dashboard from "./components/Dashboard.js";
 import NotFound from "./components/NotFound.js";
 import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
@@ -44,7 +44,7 @@ class App extends Component {
             {this.state.currentUser ? (
               <span>
                 <NavLink exact to="/">
-                  Dashbord
+                  Dashboard
                 </NavLink>
                 <NavLink to="/activity">Activity</NavLink>
                 <NavLink to="/charity">Charity</NavLink>
@@ -61,7 +61,7 @@ class App extends Component {
         </header>
 
         <Switch>
-          <Route exact path="/" component={Dashbord} />
+          <Route exact path="/" component={Dashboard} />
           <Route
             path="/signup-page"
             render={() => {
