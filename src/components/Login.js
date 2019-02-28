@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
-import "./LoginPage.css";
+import "./Login.css";
 import { postLogIn } from "../api";
 
 class LoginPage extends Component {
@@ -31,7 +31,7 @@ class LoginPage extends Component {
     return this.props.currentUser ? (
       <Redirect to="/Dashboard" />
     ) : (
-      <section className="LoginPage">
+      <section className="Login">
         <h2>Log In</h2>
 
         <form onSubmit={event => this.handleSubmit(event)}>

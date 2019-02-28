@@ -3,8 +3,8 @@ import "./App.css";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Dashboard from "./components/Dashboard.js";
 import NotFound from "./components/NotFound.js";
-import LoginPage from "./components/LoginPage";
-import SignupPage from "./components/SignupPage";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 import { getLogOut } from "./api";
 
 class App extends Component {
@@ -53,8 +53,8 @@ class App extends Component {
               </span>
             ) : (
               <span>
-                <NavLink to="/signup-page">Sign Up</NavLink>
-                <NavLink to="/login-page">Log In</NavLink>
+                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/login">Log In</NavLink>
               </span>
             )}
           </nav>
@@ -63,10 +63,10 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Dashboard} />
           <Route
-            path="/signup-page"
+            path="/signup"
             render={() => {
               return (
-                <SignupPage
+                <Signup
                   currentUser={this.state.currentUser}
                   signupSuccess={user => this.updateUser(user)}
                 />
@@ -74,10 +74,10 @@ class App extends Component {
             }}
           />
           <Route
-            path="/login-page"
+            path="/login"
             render={() => {
               return (
-                <LoginPage
+                <Login
                   currentUser={this.state.currentUser}
                   loginSuccess={user => this.updateUser(user)}
                 />
