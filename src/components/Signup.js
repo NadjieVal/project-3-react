@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import "./Signup.css";
 import { postSignUp } from "../api.js";
@@ -24,29 +25,25 @@ class Signup extends Component {
     event.preventDefault();
 
     postSignUp(this.state).then(response => {
+      console.log(response);
+
       console.log("Sign Up Result", response.data);
       this.props.signupSuccess(response.data);
     });
   }
 
   render() {
-    const { currentUser } = this.props;
-    console.log(currentUser);
+    const { project3User } = this.props;
+    // console.log(project3User);
     return (
       <section className="Signup">
-        {currentUser ? (
-          <div>
-            <h2>You are already signed up!</h2>
-            <p>
-              Welcome, {currentUser.firstName}! Your user ID is{" "}
-              <b>{currentUser._id}</b>.
-            </p>
-          </div>
+        {project3User ? (
+          <Redirect to="/" />
         ) : (
           <div>
             <h2>Sign Up</h2>
 
-            <form>
+            <form onSubmit={event => this.handleSubmit(event)}>
               <label>
                 First Name:
                 <input
@@ -54,7 +51,6 @@ class Signup extends Component {
                   value={this.state.firstName}
                   name="firstName"
                   type="text"
-                  placeholder=""
                 />
               </label>
               <label>
@@ -64,7 +60,6 @@ class Signup extends Component {
                   value={this.state.lastName}
                   name="lastName"
                   type="text"
-                  placeholder=""
                 />
               </label>
               <label>
@@ -74,14 +69,24 @@ class Signup extends Component {
                   value={this.state.email}
                   name="email"
                   type="email"
-                  placeholder="john.doe@example.com"
                 />
               </label>
+              <label>
+                Password:
+                <input
+                  onChange={event => this.genericOnChange(event)}
+                  value={this.state.originalPassword}
+                  name="originalPassword"
+                  type="password"
+                />
+              </label>
+
               <button>Create your account</button>
             </form>
+
             <div>
               <h6>
-                Already have an account? <Link to="/login-page">Log In</Link>
+                Already have an account? <Link to="/login">Log In</Link>
               </h6>
             </div>
           </div>
