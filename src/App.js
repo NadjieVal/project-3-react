@@ -88,6 +88,7 @@ class App extends Component {
               );
             }}
           />
+          <Route path="/categories" component={Categories} />
           <Route component={NotFound} />
         </Switch>
       </div>
