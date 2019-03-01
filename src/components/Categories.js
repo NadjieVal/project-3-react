@@ -37,10 +37,8 @@ class Categories extends Component {
                 {categoryArray.map(oneCategory => {
                   return (
                     <div key={oneCategory._id}>
-                      <h3>
-                        {oneCategory.name}
-                        {oneCategory.icon}
-                      </h3>
+                      <h3>{oneCategory.name}</h3>
+                      <img src={oneCategory.icon} alt="icon" />
                     </div>
                   );
                 })}
