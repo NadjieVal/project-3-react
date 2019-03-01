@@ -22,31 +22,26 @@ class Categories extends Component {
   render() {
     const { categoryArray } = this.state;
     return (
-      <div className="App">
-        <header>
+      <div className="App container">
+        <div class="row">
+          {/* <div className="col-sm "> */}
           <h1>Which activity do you want to save time from?</h1>
-        </header>
-
-        <div className="container">
-          <div className="row">
-            <div
-              className="col-6"
-              style={{ maxHeight: "90vh", overflow: "scroll" }}
-            >
-              <div className="list-group">
-                {categoryArray.map(oneCategory => {
-                  return (
-                    <div key={oneCategory._id}>
-                      <h3>{oneCategory.name}</h3>
-                      <img src={oneCategory.icon} alt="icon" />
-                    </div>
-                  );
-                })}
+          {/* <div className="list-group "> */}
+          {categoryArray.map(oneCategory => {
+            return (
+              <div className="icon-borders col-6" key={oneCategory._id}>
+                <h3>{oneCategory.name}</h3>
+                <img
+                  className="category-icons"
+                  src={oneCategory.icon}
+                  alt="icon"
+                />
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
+      // </div>
     );
   }
 }
