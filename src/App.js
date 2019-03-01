@@ -3,8 +3,8 @@ import "./App.css";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Dashboard from "./components/Dashboard.js";
 import NotFound from "./components/NotFound.js";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Login from "./components/Login.js";
+import Signup from "./components/Signup.js";
 import { getLogOut } from "./api";
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
     }
 
     this.state = {
-      currentUser: userInfo
+      project3User: userInfo
     };
   }
 
@@ -26,7 +26,7 @@ class App extends Component {
     } else {
       localStorage.removeItem("project3User");
     }
-    this.setState({ currentUser: newUser });
+    this.setState({ project3User: newUser });
   }
 
   logoutClick() {
@@ -41,17 +41,16 @@ class App extends Component {
       <div className="App">
         <header>
           <nav>
-            {this.state.currentUser ? (
+            {this.state.project3User ? (
               <span>
                 <NavLink exact to="/">
                   Dashboard
                 </NavLink>
-                <NavLink to="/activity">Activity</NavLink>
                 <NavLink to="/charity">Charity</NavLink>
                 <NavLink to="/history">History</NavLink>
                 <NavLink to="/profile">Profile</NavLink>
                 <span>
-                  <b>{this.state.currentUser.email}</b>
+                  <b>{this.state.project3User.email}</b>
                   <button onClick={() => this.logoutClick()}>Log Out</button>
                 </span>
               </span>
@@ -71,7 +70,7 @@ class App extends Component {
             render={() => {
               return (
                 <Signup
-                  currentUser={this.state.currentUser}
+                  project3User={this.state.project3User}
                   signupSuccess={user => this.updateUser(user)}
                 />
               );
@@ -82,7 +81,7 @@ class App extends Component {
             render={() => {
               return (
                 <Login
-                  currentUser={this.state.currentUser}
+                  project3User={this.state.project3User}
                   loginSuccess={user => this.updateUser(user)}
                 />
               );
