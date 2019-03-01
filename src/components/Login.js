@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./Login.css";
 import { postLogIn } from "../api";
@@ -57,6 +58,9 @@ class Login extends Component {
             />
           </label>
           <button>Log In</button>
+          <p>
+            Don't have an account yet? <Link to="/signup">Sign Up</Link>
+          </p>
         </form>
       </section>
     );
