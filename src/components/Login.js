@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import "./Login.css";
 import { postLogIn } from "../api";
 
-class LoginPage extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,4 +63,4 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+export default Login;
