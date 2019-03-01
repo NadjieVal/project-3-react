@@ -28,8 +28,8 @@ class Login extends Component {
   }
 
   render() {
-    return this.props.currentUser ? (
-      <Redirect to="/Dashboard" />
+    return this.props.project3User ? (
+      <Redirect to="/" />
     ) : (
       <section className="Login">
         <h2>Log In</h2>
