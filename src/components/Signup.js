@@ -85,6 +85,10 @@ class Signup extends Component {
             </form>
 
             <div>
+              <p>
+                By creating an account, you agree to our{" "}
+                <Link to="/term">Terms</Link>
+              </p>
               <h6>
                 Already have an account? <Link to="/login">Log In</Link>
               </h6>
