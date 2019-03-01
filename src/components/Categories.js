@@ -2,14 +2,21 @@ import React, { Component } from "react";
 
 import "./Categories.css";
 
-import allCategories from "./categories.json";
+import { getCategoryList } from "../api.js";
 
 class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      categoryArray: allCategories
+      categoryArray: []
     };
+  }
+
+  componentDidMount() {
+    getCategoryList().then(response => {
+      console.log("CATEGORIES", response.data);
+      this.setState({ categoryArray: response.data });
+    });
   }
 
   render() {
