@@ -10,7 +10,7 @@ import { getLogOut } from "./api";
 class App extends Component {
   constructor(props) {
     super(props);
-    let userInfo = localStorage.getItem("currentUser");
+    let userInfo = localStorage.getItem("project3User");
     if (userInfo) {
       userInfo = JSON.parse(userInfo);
     }
@@ -22,9 +22,9 @@ class App extends Component {
 
   updateUser(newUser) {
     if (newUser) {
-      localStorage.setItem("currentUser", JSON.stringify(newUser));
+      localStorage.setItem("project3User", JSON.stringify(newUser));
     } else {
-      localStorage.removeItem("currentUser");
+      localStorage.removeItem("project3User");
     }
     this.setState({ currentUser: newUser });
   }
@@ -50,6 +50,10 @@ class App extends Component {
                 <NavLink to="/charity">Charity</NavLink>
                 <NavLink to="/history">History</NavLink>
                 <NavLink to="/profile">Profile</NavLink>
+                <span>
+                  <b>{this.state.currentUser.email}</b>
+                  <button onClick={() => this.logoutClick()}>Log Out</button>
+                </span>
               </span>
             ) : (
               <span>
