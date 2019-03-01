@@ -50,7 +50,6 @@ class App extends Component {
                 <NavLink to="/history">History</NavLink>
                 <NavLink to="/profile">Profile</NavLink>
                 <span>
-                  <b>{this.state.project3User.email}</b>
                   <button onClick={() => this.logoutClick()}>Log Out</button>
                 </span>
               </span>
