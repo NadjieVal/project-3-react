@@ -6,6 +6,7 @@ import NotFound from "./components/NotFound.js";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { getLogOut } from "./api";
+import Categories from "./components/Categories";
 
 class App extends Component {
   constructor(props) {
