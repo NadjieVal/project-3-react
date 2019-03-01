@@ -35,3 +35,6 @@ export function postLogIn(loginCredentials) {
 export function getLogOut() {
   return backendApi.get("/api/logout").catch(errorHandler);
 }
+export function getCategoryList() {
+  return backendApi.get("/api/categories").catch(errorHandler);
+}
