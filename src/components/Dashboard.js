@@ -6,7 +6,7 @@ class Dashboard extends Component {
   render() {
     return (
       <section>
-        <p>Welcome to The No Name App!</p>
+        <p>Welcome to TimeFor!</p>
       </section>
     );
   }
