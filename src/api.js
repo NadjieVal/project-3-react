@@ -38,3 +38,7 @@ export function getLogOut() {
 export function getCategoryList() {
   return backendApi.get("/api/categories").catch(errorHandler);
 }
+
+export function getMissionsList() {
+  return backendApi.get("/api/charities").catch(errorHandler);
+}
