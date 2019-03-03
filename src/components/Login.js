@@ -32,36 +32,50 @@ class Login extends Component {
     return this.props.project3User ? (
       <Redirect to="/" />
     ) : (
-      <section className="Login">
-        <h2>Log In</h2>
+      <section className="Login container">
+        <div className="row justify-content-center">
+          <div className="form-contain">
+            <h2>Log In</h2>
+            <p className="small-text">
+              Don't have an account yet?{" "}
+              <Link to="/signup" className="text-link">
+                Sign Up
+              </Link>
+            </p>
 
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <label>
-            Email:
-            <input
-              onChange={event => this.genericOnChange(event)}
-              value={this.state.email}
-              name="email"
-              type="email"
-              placeholder="john.doe@example.com"
-            />
-          </label>
+            <form onSubmit={event => this.handleSubmit(event)}>
+              <label>Email:</label>
+              <input
+                onChange={event => this.genericOnChange(event)}
+                value={this.state.email}
+                name="email"
+                type="email"
+                placeholder="email@example.com"
+              />
 
-          <label>
-            Password:
-            <input
-              onChange={event => this.genericOnChange(event)}
-              value={this.state.originalPassword}
-              name="originalPassword"
-              type="password"
-              placeholder="secret secret"
-            />
-          </label>
-          <button>Log In</button>
-          <p>
-            Don't have an account yet? <Link to="/signup">Sign Up</Link>
-          </p>
-        </form>
+              <label>Password:</label>
+              <input
+                onChange={event => this.genericOnChange(event)}
+                value={this.state.originalPassword}
+                name="originalPassword"
+                type="password"
+                placeholder="p@55w0rd"
+              />
+
+              <div>
+                <button>Log In</button>
+              </div>
+              <div>
+                <p className="small-text">
+                  Forgot your{" "}
+                  <Link to="/terms" className="text-link">
+                    Password?
+                  </Link>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
       </section>
     );
   }
