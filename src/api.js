@@ -42,3 +42,6 @@ export function getCategoryList() {
 export function getMissionsList() {
   return backendApi.get("/api/charities").catch(errorHandler);
 }
+export function getMissionDetails(charityId) {
+  return backendApi.get(`/api/charities/${charityId}`).catch(errorHandler);
+}

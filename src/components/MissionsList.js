@@ -27,21 +27,35 @@ class Charities extends Component {
           return (
             <div
               className="card"
-              style={{ width: 8 + `rem;` }}
+              // style={{ width: 18 + `rem` }}
               key={oneMission._id}
             >
-              <img
-                src={oneMission.charityLogo}
-                className="card-img-top"
-                alt="charity-logo"
-              />
-              <div className="card-body">
-                <h3 className="card-title">{oneMission.charityName}</h3>
-                <h4>{oneMission.missionName}</h4>
-                <p className="card-text">{oneMission.missionIntro}</p>
-                <a href="#" className="btn btn-primary">
-                  See Details
-                </a>
+              <div className="new-card">
+                <img
+                  src={oneMission.charityLogo}
+                  className="card-img-top charity-logo"
+                  alt="charity-logo"
+                />
+                <div className="card-body">
+                  <h3 className="card-title">{oneMission.charityName}</h3>
+                  <b>
+                    {oneMission.missionName}
+                    <br />
+                    {oneMission.date} | {oneMission.time}
+                  </b>
+                  <p className="card-text">{oneMission.missionIntro}</p>
+                  {/* <a href="#" className="btn btn-primary">
+                    See Details
+                  </a> */}
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#exampleModalLong"
+                  >
+                    See Details
+                  </button>
+                </div>
               </div>
             </div>
           );
