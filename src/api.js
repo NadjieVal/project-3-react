@@ -35,6 +35,11 @@ export function postLogIn(loginCredentials) {
 export function getLogOut() {
   return backendApi.get("/api/logout").catch(errorHandler);
 }
+
+export function getHomePage() {
+  return backendApi.get("/api/home").catch(errorHandler);
+}
+
 export function getCategoryList() {
   return backendApi.get("/api/categories").catch(errorHandler);
 }
@@ -42,6 +47,7 @@ export function getCategoryList() {
 export function getMissionsList() {
   return backendApi.get("/api/charities").catch(errorHandler);
 }
+
 export function getMissionDetails(charityId) {
   return backendApi.get(`/api/charities/${charityId}`).catch(errorHandler);
 }
