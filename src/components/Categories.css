@@ -4,3 +4,8 @@
 .icon-borders {
   border: 2px;
 }
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}

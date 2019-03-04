@@ -23,22 +23,29 @@ class Categories extends Component {
     const { categoryArray } = this.state;
     return (
       <div className="App container">
-        <div class="row">
+        <div className="row">
           {/* <div className="col-sm "> */}
-          <h1>Which activity do you want to save time from?</h1>
+          <div className="col-12">
+            <h1>Which activity do you want to save time from?</h1>
+          </div>
           {/* <div className="list-group "> */}
-          {categoryArray.map(oneCategory => {
-            return (
-              <div className="icon-borders col-6" key={oneCategory._id}>
-                <h3>{oneCategory.name}</h3>
-                <img
-                  className="category-icons"
-                  src={oneCategory.icon}
-                  alt="icon"
-                />
-              </div>
-            );
-          })}
+          <ul className="row">
+            {categoryArray.map(oneCategory => {
+              return (
+                <li
+                  className="icon-borders col-lg-4 col-md-4 col-sm-6 col-xs-6"
+                  key={oneCategory._id}
+                >
+                  <h3>{oneCategory.name}</h3>
+                  <img
+                    className="category-icons"
+                    src={oneCategory.icon}
+                    alt="icon"
+                  />
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
       // </div>
