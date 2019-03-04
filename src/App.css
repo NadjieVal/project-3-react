@@ -1,0 +1,65 @@
+/* @media (max-width: 576px) { */
+
+.App {
+  text-align: center;
+}
+
+.category-icons {
+  max-height: 30px;
+}
+
+/*** Typographic Elements ***/
+
+h2 {
+  font-weight: 800;
+}
+
+.small-text {
+  font-size: 14px;
+  color: #666666;
+}
+
+/*** Form Elements ***/
+label {
+  display: flex;
+  color: #333333;
+  font-size: 14px;
+  margin-bottom: 0.25rem;
+}
+
+input {
+  border: 1px solid #c2c5c4;
+  width: 100%;
+  padding: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.form-contain {
+  border: 1px solid #eeeeef;
+  /* width: 100vw; */
+  padding: 1.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #f6f7f9;
+}
+
+/*** Interactive Elements ***/
+
+.text-link {
+  font-size: 14px;
+  font-weight: bold;
+  color: #3d90de;
+  text-decoration: none;
+}
+
+button {
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  background-image: linear-gradient(to bottom right, #3d90de, #7ae0eb);
+  width: 70%;
+  height: 50px;
+  border: none;
+  margin: 1rem;
+}
+
+/* } */

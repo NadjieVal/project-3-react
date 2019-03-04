@@ -15,16 +15,14 @@ class Dashboard extends Component {
   render() {
     return (
       <section>
-        <p>Welcome to TimeFor!</p>
-
         <div>
-          <p>TimeSaved</p>
+          <h3>1h35</h3>
+          <p>Available Time</p>
           {/* <p>{this.state.TimeSaved}</p> */}
         </div>
-        <div>
-          <p>date: february 2019</p>
-        </div>
+
         <div>CHART</div>
+
         <div>
           <button>Add Time</button>
           <button>Spend Time</button>
