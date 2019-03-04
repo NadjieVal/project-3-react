@@ -14,13 +14,13 @@ class Home extends Component {
               <h2>TimeFor</h2>
             </div>
 
-            <button className="primary-btn">
-              <Link to="/login">Log In</Link>
-            </button>
+            <Link to="/login">
+              <button className="primary-btn">Log In</button>
+            </Link>
 
-            <button className="primary-btn">
-              <Link to="/signup">Sign Up</Link>
-            </button>
+            <Link to="/signup">
+              <button className="primary-btn">Sign Up</button>
+            </Link>
           </div>
         </div>
       </section>

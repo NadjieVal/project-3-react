@@ -37,7 +37,7 @@ export function getLogOut() {
 }
 
 export function getHomePage() {
-  return backendApi.get("/api/home").catch(errorHandler);
+  return backendApi.get("/api/").catch(errorHandler);
 }
 
 export function getCategoryList() {

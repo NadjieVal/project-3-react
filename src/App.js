@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import { withRouter } from "react-router";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Dashboard from "./components/Dashboard.js";
 import NotFound from "./components/NotFound.js";
@@ -20,7 +21,8 @@ class App extends Component {
     }
 
     this.state = {
-      project3User: userInfo
+      project3User: userInfo,
+      submitted: false
     };
   }
 
@@ -36,31 +38,15 @@ class App extends Component {
   logoutClick() {
     getLogOut().then(response => {
       console.log("Log Out", response.data);
+      this.setState({ submitted: true });
       this.updateUser(null);
     });
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="App">
-        <header>
-          <nav>
-            {this.state.project3User ? (
-              <span>
-                <NavLink to="/dashboard">Dashboard</NavLink>
-                <NavLink to="/charities">Missions</NavLink>
-                <NavLink to="/history">History</NavLink>
-                <NavLink to="/profile">Profile</NavLink>
-                <span>
-                  <button onClick={() => this.logoutClick()}>Log Out</button>
-                </span>
-              </span>
-            ) : (
-              <span />
-            )}
-          </nav>
-        </header>
-
         <Switch>
           <Route exact path="/" component={Home} />
           <Route
@@ -85,6 +71,18 @@ class App extends Component {
               );
             }}
           />
+          <Route
+            path="/logout"
+            render={() => {
+              return (
+                <Home
+                  project3User={this.state.project3User}
+                  logoutSuccess={newUser => this.updateUser(newUser)}
+                />
+              );
+            }}
+          />
+
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/categories" component={Categories} />
           <Route path="/charities" component={Charities} />
@@ -104,7 +102,9 @@ class App extends Component {
                 <NavLink to="/history">History</NavLink>
                 <NavLink to="/profile">Profile</NavLink>
                 <span>
-                  <button onClick={() => this.logoutClick()}>Log Out</button>
+                  <NavLink to="/logout" onClick={() => this.logoutClick()}>
+                    Log Out
+                  </NavLink>
                 </span>
               </span>
             ) : (
@@ -117,4 +117,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
