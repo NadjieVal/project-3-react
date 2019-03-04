@@ -36,65 +36,70 @@ class Signup extends Component {
     const { project3User } = this.props;
     // console.log(project3User);
     return (
-      <section className="Signup">
-        {project3User ? (
-          <Redirect to="/" />
-        ) : (
-          <div>
-            <h2>Sign Up</h2>
+      <section className="Signup container">
+        <div className="row justify-content-center">
+          {project3User ? (
+            <Redirect to="/" />
+          ) : (
+            <div className="form-contain">
+              <h2>Sign Up</h2>
 
-            <form onSubmit={event => this.handleSubmit(event)}>
-              <label>
-                First Name:
+              <p className="small-text">
+                Already have an account?{" "}
+                <Link to="/login" className="text-link">
+                  Log In
+                </Link>
+              </p>
+
+              <form onSubmit={event => this.handleSubmit(event)}>
+                <label>First Name</label>
                 <input
                   onChange={event => this.genericOnChange(event)}
                   value={this.state.firstName}
                   name="firstName"
                   type="text"
                 />
-              </label>
-              <label>
-                Last Name:
+
+                <label>Last Name</label>
                 <input
                   onChange={event => this.genericOnChange(event)}
                   value={this.state.lastName}
                   name="lastName"
                   type="text"
                 />
-              </label>
-              <label>
-                Email:
+
+                <label>Email</label>
                 <input
                   onChange={event => this.genericOnChange(event)}
                   value={this.state.email}
                   name="email"
                   type="email"
                 />
-              </label>
-              <label>
-                Password:
+
+                <label>Password</label>
                 <input
                   onChange={event => this.genericOnChange(event)}
                   value={this.state.originalPassword}
                   name="originalPassword"
                   type="password"
                 />
-              </label>
 
-              <button>Create your account</button>
-            </form>
+                <div>
+                  <button>Create your account</button>
+                </div>
+              </form>
 
-            <div>
-              <p>
-                By creating an account, you agree to our{" "}
-                <Link to="/term">Terms</Link>
-              </p>
-              <h6>
-                Already have an account? <Link to="/login">Log In</Link>
-              </h6>
+              <div>
+                <p className="small-text">
+                  By creating an account, you agree to our{" "}
+                  <Link to="/terms" className="text-link">
+                    Terms
+                  </Link>
+                </p>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </section>
     );
   }

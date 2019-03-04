@@ -1,0 +1,9 @@
+.charity-logo {
+  max-width: 100px;
+  object-fit: contain;
+  padding: 30px;
+}
+.new-card {
+  display: flex;
+  align-items: flex-start;
+}

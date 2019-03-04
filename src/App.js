@@ -7,6 +7,8 @@ import Login from "./components/Login.js";
 import Signup from "./components/Signup.js";
 import { getLogOut } from "./api";
 import Categories from "./components/Categories.js";
+import Charities from "./components/MissionsList";
+import MissionDetails from "./components/MissionDetails";
 
 class App extends Component {
   constructor(props) {
@@ -67,6 +69,12 @@ class App extends Component {
             }}
           />
           <Route path="/categories" component={Categories} />
+          <Route path="/charities" component={Charities} />
+          <Route
+            path="/charities-details/:charityId"
+            component={MissionDetails}
+          />
+
           <Route component={NotFound} />
         </Switch>
         <footer>
