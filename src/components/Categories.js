@@ -22,9 +22,9 @@ class Categories extends Component {
   render() {
     const { categoryArray } = this.state;
     return (
-      <div className="App container">
-        <div className="row">
-          {/* <div className="col-sm "> */}
+      <section className="App ">
+        <div className="container">
+          {/* <section className="col-sm "> */}
           <div className="col-12">
             <h1>Which activity do you want to save time from?</h1>
           </div>
@@ -47,7 +47,7 @@ class Categories extends Component {
             })}
           </ul>
         </div>
-      </div>
+      </section>
       // </div>
     );
   }
