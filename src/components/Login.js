@@ -30,7 +30,7 @@ class Login extends Component {
 
   render() {
     return this.props.project3User ? (
-      <Redirect to="/" />
+      <Redirect to="/dashboard" />
     ) : (
       <section className="Login container">
         <div className="row justify-content-center">
@@ -63,7 +63,7 @@ class Login extends Component {
               />
 
               <div>
-                <button>Log In</button>
+                <button className="primary-btn">Log In</button>
               </div>
               <div>
                 <p className="small-text">

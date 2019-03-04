@@ -1,9 +1,9 @@
 .charity-logo {
-  max-width: 100px;
+  max-width: 200px;
   object-fit: contain;
-  padding: 30px;
+  /* padding: 30px; */
 }
-.new-card {
+/* .new-card {
   display: flex;
   align-items: flex-start;
-}
+} */
