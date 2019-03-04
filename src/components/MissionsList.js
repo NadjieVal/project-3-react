@@ -44,17 +44,17 @@ class Charities extends Component {
                     {oneMission.date} | {oneMission.time}
                   </b>
                   <p className="card-text">{oneMission.missionIntro}</p>
-                  {/* <a href="#" className="btn btn-primary">
+                  <a href="#" className="btn btn-primary">
                     See Details
-                  </a> */}
-                  <button
+                  </a>
+                  {/* <button
                     type="button"
                     className="btn btn-primary"
                     data-toggle="modal"
                     data-target="#exampleModalLong"
                   >
                     See Details
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
