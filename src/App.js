@@ -85,11 +85,8 @@ class App extends Component {
 
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/categories" component={Categories} />
+          <Route path="/charities/:charityId" component={MissionDetails} />
           <Route path="/charities" component={Charities} />
-          <Route
-            path="/charities-details/:charityId"
-            component={MissionDetails}
-          />
 
           <Route component={NotFound} />
         </Switch>
