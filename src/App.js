@@ -9,6 +9,7 @@ import { getLogOut } from "./api";
 import Categories from "./components/Categories.js";
 import Charities from "./components/MissionsList";
 import MissionDetails from "./components/MissionDetails";
+import Home from "./components/Home";
 
 class App extends Component {
   constructor(props) {
@@ -46,10 +47,8 @@ class App extends Component {
           <nav>
             {this.state.project3User ? (
               <span>
-                <NavLink exact to="/">
-                  Dashboard
-                </NavLink>
-                <NavLink to="/charity">Charity</NavLink>
+                <NavLink to="/dashboard">Dashboard</NavLink>
+                <NavLink to="/charities">Missions</NavLink>
                 <NavLink to="/history">History</NavLink>
                 <NavLink to="/profile">Profile</NavLink>
                 <span>
@@ -57,16 +56,13 @@ class App extends Component {
                 </span>
               </span>
             ) : (
-              <span>
-                <NavLink to="/signup">Sign Up</NavLink>
-                <NavLink to="/login">Log In</NavLink>
-              </span>
+              <span />
             )}
           </nav>
         </header>
 
         <Switch>
-          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/" component={Home} />
           <Route
             path="/signup"
             render={() => {
@@ -89,6 +85,7 @@ class App extends Component {
               );
             }}
           />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/categories" component={Categories} />
           <Route path="/charities" component={Charities} />
           <Route
