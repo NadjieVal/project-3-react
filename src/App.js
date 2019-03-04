@@ -9,6 +9,7 @@ import { getLogOut } from "./api";
 import Categories from "./components/Categories.js";
 import Charities from "./components/MissionsList";
 import MissionDetails from "./components/MissionDetails";
+import Chart from "./components/Chart.js";
 
 class App extends Component {
   constructor(props) {
@@ -68,6 +69,7 @@ class App extends Component {
               );
             }}
           />
+          {/* <Route path="/chart" component={Chart} /> */}
           <Route path="/categories" component={Categories} />
           <Route path="/charities" component={Charities} />
           <Route
@@ -77,28 +79,8 @@ class App extends Component {
 
           <Route component={NotFound} />
         </Switch>
-        <footer>
-          <nav>
-            {this.state.project3User ? (
-              <span>
-                <NavLink exact to="/">
-                  Dashboard
-                </NavLink>
-                <NavLink to="/charity">Charity</NavLink>
-                <NavLink to="/history">History</NavLink>
-                <NavLink to="/profile">Profile</NavLink>
-                <span>
-                  <button onClick={() => this.logoutClick()}>Log Out</button>
-                </span>
-              </span>
-            ) : (
-              <span>
-                <NavLink to="/signup">Sign Up</NavLink>
-                <NavLink to="/login">Log In</NavLink>
-              </span>
-            )}
-          </nav>
-        </footer>
+
+        <footer />
       </div>
     );
   }
