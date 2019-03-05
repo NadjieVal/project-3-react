@@ -48,7 +48,7 @@ class Charities extends Component {
                     {oneMission.missionName}
                     <br />
                     {moment(oneMission.date).format("YYYY MM DD")} |{" "}
-                    {oneMission.time}
+                    {oneMission.missionTime}
                   </b>
                   <p className="card-text">{oneMission.missionIntro}</p>
                   {/* <a href="#" className="btn btn-primary"> */}

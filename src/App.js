@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
-import { withRouter } from "react-router";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Dashboard from "./components/Dashboard.js";
 import NotFound from "./components/NotFound.js";
 import Login from "./components/Login.js";
 import Signup from "./components/Signup.js";
-import { getLogOut } from "./api";
 import Categories from "./components/Categories.js";
-import Charities from "./components/MissionsList";
-import MissionDetails from "./components/MissionDetails";
-import Home from "./components/Home";
+import Charities from "./components/MissionsList.js";
+import MissionDetails from "./components/MissionDetails.js";
+import Home from "./components/Home.js";
+import Profile from "./components/Profile.js";
+import { getLogOut } from "./api.js";
 
 class App extends Component {
   constructor(props) {
@@ -87,6 +87,18 @@ class App extends Component {
           <Route path="/categories" component={Categories} />
           <Route path="/charities/:charityId" component={MissionDetails} />
           <Route path="/charities" component={Charities} />
+          <Route
+            path="/profile/:userId"
+            render={() => {
+              return <Profile currentUser={this.state.project3User} />;
+            }}
+          />
+          {/* <Route
+            path="/profile"
+            render={() => {
+              return <Profile project3User={this.state.project3User} />;
+            }}
+          /> */}
 
           <Route component={NotFound} />
         </Switch>
@@ -97,7 +109,7 @@ class App extends Component {
                 <NavLink to="/dashboard">Dashboard</NavLink>
                 <NavLink to="/charities">Missions</NavLink>
                 <NavLink to="/history">History</NavLink>
-                <NavLink to="/profile">Profile</NavLink>
+                <NavLink to="/profile/:userId">Profile</NavLink>
                 <span>
                   <NavLink to="/logout" onClick={() => this.logoutClick()}>
                     Log Out
@@ -114,4 +126,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default App;
