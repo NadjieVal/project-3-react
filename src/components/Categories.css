@@ -9,3 +9,15 @@ ul {
   list-style-type: none;
   padding-inline-start: 0;
 }
+
+button {
+  margin: 10px;
+}
+
+.item-logo {
+  max-height: 25px;
+}
+
+img {
+  padding-top: 10px;
+}
