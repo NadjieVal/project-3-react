@@ -8,6 +8,7 @@ import Signup from "./components/Signup.js";
 import Categories from "./components/Categories.js";
 import Charities from "./components/MissionsList.js";
 import MissionDetails from "./components/MissionDetails.js";
+import YourMissions from "./components/YourMissions";
 import Home from "./components/Home.js";
 import Profile from "./components/Profile.js";
 import { getLogOut } from "./api.js";
@@ -99,6 +100,7 @@ class App extends Component {
               return <Profile project3User={this.state.project3User} />;
             }}
           /> */}
+          <Route path="/your-missions" component={YourMissions} />
 
           <Route component={NotFound} />
         </Switch>
@@ -110,6 +112,8 @@ class App extends Component {
                 <NavLink to="/charities">Missions</NavLink>
                 <NavLink to="/history">History</NavLink>
                 <NavLink to="/profile/:userId">Profile</NavLink>
+                <NavLink to="/your-missions">Your Missions</NavLink>
+
                 <span>
                   <NavLink to="/logout" onClick={() => this.logoutClick()}>
                     Log Out
