@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./MissionDetails.css";
 
@@ -18,7 +19,6 @@ class MissionDetails extends Component {
     const { params } = this.props.match;
 
     getMissionDetails(params.charityId).then(response => {
-      console.log("mission details", response.data);
       this.setState({ missionItem: response.data });
     });
   }
@@ -26,7 +26,7 @@ class MissionDetails extends Component {
     const { missionItem } = this.state;
     return (
       <div className="media">
-        <img src="..." class="align-self-start mr-3" alt="..." />
+        <img src="..." className="align-self-start mr-3" alt="..." />
         <div className="media-body">
           <h3 className="mt-0">{missionItem.charityName}</h3>
           <b>
@@ -37,7 +37,12 @@ class MissionDetails extends Component {
             {missionItem.location}
           </b>
           <p>{missionItem.missionDescription}</p>
+          <p>{missionItem.charityUrl}</p>
+          <p>{missionItem.email}</p>
         </div>
+        <Link to="/your-missions">
+          <button className="primary-btn">Book this mission</button>
+        </Link>
       </div>
     );
   }

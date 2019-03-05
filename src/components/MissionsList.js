@@ -20,7 +20,6 @@ class Charities extends Component {
 
   componentDidMount() {
     getMissionsList().then(response => {
-      console.log("MISSIONS", response.data);
       this.setState({ missionsArray: response.data });
     });
   }

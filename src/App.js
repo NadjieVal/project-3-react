@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import { withRouter } from "react-router";
 import { Switch, Route, NavLink } from "react-router-dom";
 import Dashboard from "./components/Dashboard.js";
 import NotFound from "./components/NotFound.js";
@@ -11,6 +10,7 @@ import Categories from "./components/Categories.js";
 import Charities from "./components/MissionsList";
 import MissionDetails from "./components/MissionDetails";
 import Home from "./components/Home";
+import YourMissions from "./components/YourMissions";
 
 class App extends Component {
   constructor(props) {
@@ -87,6 +87,7 @@ class App extends Component {
           <Route path="/categories" component={Categories} />
           <Route path="/charities/:charityId" component={MissionDetails} />
           <Route path="/charities" component={Charities} />
+          <Route path="/your-missions" component={YourMissions} />
 
           <Route component={NotFound} />
         </Switch>
@@ -96,7 +97,7 @@ class App extends Component {
               <span>
                 <NavLink to="/dashboard">Dashboard</NavLink>
                 <NavLink to="/charities">Missions</NavLink>
-                <NavLink to="/history">History</NavLink>
+                <NavLink to="/your-missions">Your Missions</NavLink>
                 <NavLink to="/profile">Profile</NavLink>
                 <span>
                   <NavLink to="/logout" onClick={() => this.logoutClick()}>
@@ -114,4 +115,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default App;
