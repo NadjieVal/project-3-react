@@ -44,6 +44,8 @@ class Dashboard extends Component {
             <li>LOGO + ACTIVITY + TIME SAVED</li>
           </ul>
         </div> */}
+
+        <div className="recently-added" />
       </section>
     );
   }

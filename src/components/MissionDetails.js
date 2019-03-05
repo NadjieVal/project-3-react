@@ -26,13 +26,18 @@ class MissionDetails extends Component {
     const { missionItem } = this.state;
     return (
       <div className="media">
-        <img src="..." className="align-self-start mr-3" alt="..." />
+        <img
+          src={missionItem.charityLogo}
+          className="align-self-start mr-3 logo-details"
+          alt="charity-logo"
+        />
         <div className="media-body">
           <h3 className="mt-0">{missionItem.charityName}</h3>
           <b>
             {missionItem.missionName}
             <br />
-            {moment(missionItem.date).format("YYYY MM DD")} | {missionItem.time}
+            {moment(missionItem.date).format("YYYY MM DD")} |{" "}
+            {missionItem.missionTime}
             <br />
             {missionItem.location}
           </b>
