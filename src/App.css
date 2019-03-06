@@ -78,9 +78,26 @@ input {
   height: 50px;
   border: none;
   margin: 1rem;
+  border-radius: 10px;
 }
 /* } */
 
 .col-sm-6 {
   width: 50% !important;
+}
+
+/*** Bottom Navbar ***/
+
+nav {
+  position: fixed;
+  bottom: 0;
+  background-color: gray;
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon {
+  width: 20px;
+  height: 25px;
+  margin-bottom: 5px;
 }

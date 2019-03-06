@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import "./Categories.css";
 
@@ -15,6 +16,7 @@ class Categories extends Component {
     this.state = {
       categoryArray: [],
       show: false
+      // timeSaved: []
     };
   }
 
@@ -26,11 +28,25 @@ class Categories extends Component {
   }
 
   handleClose() {
+    // const timeSaved = this.state.timeSaved;
+
+    // timeSaved.push(event.target.value);
+
+    // this.setState({ timeSaved: timeSaved });
     this.setState({ show: false });
   }
 
   handleShow() {
     this.setState({ show: true });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const timeSaved = this.state.timeSaved;
+
+    timeSaved.push(event.target.value);
+
+    this.setState({ timeSaved: timeSaved });
   }
 
   render() {
@@ -46,9 +62,9 @@ class Categories extends Component {
             {categoryArray.map(oneCategory => {
               return (
                 <Button
-                  variant="dark"
+                  variant="secondary"
                   onClick={this.handleShow}
-                  className="item-btn icon-borders col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  className="item-btn icon-borders col-5 col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   key={oneCategory._id}
                 >
                   <img
@@ -64,20 +80,27 @@ class Categories extends Component {
         </div>
         <Modal
           show={this.state.show}
-          onHide={this.handleClose}
+          onHide={event => this.handleClose(event)}
           aria-labelledby="contained-modal-title-vcenter"
           centered
         >
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>How much time to you want to save?</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+
+          <Modal.Body>
+            <Form.Control
+              name="inputTime"
+              type="text"
+              placeholder="Enter time in minutes"
+            />
+          </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={this.handleClose}>
-              Save Changes
+            <Button
+              variant="secondary"
+              onClick={event => this.handleSubmit(event)}
+            >
+              Submit
             </Button>
           </Modal.Footer>
         </Modal>
