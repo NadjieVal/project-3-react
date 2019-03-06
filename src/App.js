@@ -5,12 +5,13 @@ import Dashboard from "./components/Dashboard.js";
 import NotFound from "./components/NotFound.js";
 import Login from "./components/Login.js";
 import Signup from "./components/Signup.js";
-import { getLogOut } from "./api";
 import Categories from "./components/Categories.js";
-import Charities from "./components/MissionsList";
-import MissionDetails from "./components/MissionDetails";
-import Home from "./components/Home";
+import Charities from "./components/MissionsList.js";
+import MissionDetails from "./components/MissionDetails.js";
 import YourMissions from "./components/YourMissions";
+import Home from "./components/Home.js";
+import Profile from "./components/Profile.js";
+import { getLogOut } from "./api.js";
 
 class App extends Component {
   constructor(props) {
@@ -87,6 +88,18 @@ class App extends Component {
           <Route path="/categories" component={Categories} />
           <Route path="/charities/:charityId" component={MissionDetails} />
           <Route path="/charities" component={Charities} />
+          <Route
+            path="/profile/:userId"
+            render={() => {
+              return <Profile currentUser={this.state.project3User} />;
+            }}
+          />
+          {/* <Route
+            path="/profile"
+            render={() => {
+              return <Profile project3User={this.state.project3User} />;
+            }}
+          /> */}
           <Route path="/your-missions" component={YourMissions} />
 
           <Route component={NotFound} />
@@ -97,8 +110,10 @@ class App extends Component {
               <span>
                 <NavLink to="/dashboard">Dashboard</NavLink>
                 <NavLink to="/charities">Missions</NavLink>
+                <NavLink to="/history">History</NavLink>
+                <NavLink to="/profile/:userId">Profile</NavLink>
                 <NavLink to="/your-missions">Your Missions</NavLink>
-                <NavLink to="/profile">Profile</NavLink>
+
                 <span>
                   <NavLink to="/logout" onClick={() => this.logoutClick()}>
                     Log Out
