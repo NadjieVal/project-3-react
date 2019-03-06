@@ -31,9 +31,14 @@ class Dashboard extends Component {
       { time: 25, createdAt: "2019-03-05T23:00:00.000Z" },
       { time: 5, createdAt: "2019-03-05T23:00:00.000Z" }
     ];
+    const totalMinutes = timeSaved.reduce(
+      (sum, oneInput) => sum + oneInput.time,
+      0
+    );
     return (
       <section>
         <h3>3h30</h3>
+        <h3>{converted(totalMinutes)}</h3>
         {/* <div>
           
           <p>Available Time</p> */}
