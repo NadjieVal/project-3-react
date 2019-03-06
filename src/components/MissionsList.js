@@ -57,14 +57,6 @@ class Charities extends Component {
                   >
                     See Details
                   </a>
-                  {/* <button
-                    type="button"
-                    className="btn btn-primary"
-                    data-toggle="modal"
-                    data-target="#exampleModalLong"
-                  >
-                    See Details
-                  </button> */}
                 </div>
               </div>
             </div>

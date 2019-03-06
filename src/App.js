@@ -95,12 +95,7 @@ class App extends Component {
               return <Profile currentUser={this.state.project3User} />;
             }}
           />
-          {/* <Route
-            path="/profile"
-            render={() => {
-              return <Profile project3User={this.state.project3User} />;
-            }}
-          /> */}
+
           <Route path="/your-missions" component={YourMissions} />
           <Route path="/add-category" component={AddCategory} />
 

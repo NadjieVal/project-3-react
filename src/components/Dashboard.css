@@ -1,0 +1,44 @@
+.list {
+  background-color: red;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.list img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.leftside {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: center;
+}
+
+.rightside {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  align-items: center;
+}
+
+.rightside h2 {
+  margin: 0;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  margin: 0 20px;
+}
+
+.description p {
+  margin: 0;
+  padding-top: 0;
+}
