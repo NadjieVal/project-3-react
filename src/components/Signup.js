@@ -89,14 +89,14 @@ class Signup extends Component {
                 </div>
               </form>
 
-              <div>
+              {/* <div>
                 <p className="small-text">
                   By creating an account, you agree to our{" "}
                   <Link to="/terms" className="text-link">
                     Terms
                   </Link>
                 </p>
-              </div>
+              </div> */}
             </div>
           )}
         </div>

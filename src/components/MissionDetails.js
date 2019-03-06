@@ -25,30 +25,36 @@ class MissionDetails extends Component {
   render() {
     const { missionItem } = this.state;
     return (
-      <div className="media">
-        <img
-          src={missionItem.charityLogo}
-          className="align-self-start mr-3 logo-details"
-          alt="charity-logo"
-        />
-        <div className="media-body">
-          <h3 className="mt-0">{missionItem.charityName}</h3>
-          <b>
-            {missionItem.missionName}
-            <br />
-            {moment(missionItem.date).format("YYYY MM DD")} |{" "}
-            {missionItem.missionTime}
-            <br />
-            {missionItem.location}
-          </b>
-          <p>{missionItem.missionDescription}</p>
-          <p>{missionItem.charityUrl}</p>
-          <p>{missionItem.email}</p>
+      <section className="MissionDetails container">
+        <div className="row justify-content-center">
+          <div className="general-layout">
+            <div className="d-flex justify-content-center">
+              <div>
+                <img src="..." className="align-self-start mr-3" alt="..." />
+              </div>
+              <div>
+                <h4 className="mt-0">{missionItem.missionName}</h4>
+                <p>{missionItem.charityName}</p>
+              </div>
+            </div>
+            <div className="media-body">
+              <p className="bold-text">
+                {moment(missionItem.missionDate).format("YYYY MM DD")} |{" "}
+                {missionItem.missionTime}
+              </p>
+              <p>
+                <b>{missionItem.location}</b>
+              </p>
+              <p className="description">{missionItem.missionDescription}</p>
+              <p className="text-link">{missionItem.charityUrl}</p>
+              <p>{missionItem.email}</p>
+            </div>
+            <Link to="/your-missions">
+              <button className="primary-btn">Book this mission</button>
+            </Link>
+          </div>
         </div>
-        <Link to="/your-missions">
-          <button className="primary-btn">Book this mission</button>
-        </Link>
-      </div>
+      </section>
     );
   }
 }

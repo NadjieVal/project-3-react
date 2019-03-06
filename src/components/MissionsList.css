@@ -1,7 +1,8 @@
-.charity-logo {
-  max-width: 200px;
+.card-back {
+  max-height: 100%;
+  width: auto;
   object-fit: contain;
-  /* padding: 30px; */
+  margin-top: 15px;
 }
 /* .new-card {
   display: flex;

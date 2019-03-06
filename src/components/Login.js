@@ -50,7 +50,6 @@ class Login extends Component {
                 value={this.state.email}
                 name="email"
                 type="email"
-                placeholder="email@example.com"
               />
 
               <label>Password:</label>
@@ -59,7 +58,6 @@ class Login extends Component {
                 value={this.state.originalPassword}
                 name="originalPassword"
                 type="password"
-                placeholder="p@55w0rd"
               />
 
               <div>
