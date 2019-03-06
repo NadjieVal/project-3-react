@@ -132,3 +132,14 @@ nav {
   justify-content: space-evenly;
   /* background-color: red; */
 }
+
+/*** Mission Pages ***/
+
+.charity-logo {
+  margin: 30px;
+  width: 300px;
+}
+
+.mission-name {
+  margin: 30px 0px;
+}
