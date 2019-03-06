@@ -28,6 +28,7 @@ class Charities extends Component {
     const { missionsArray } = this.state;
     return (
       <div className="App container">
+        {/* <div className="row  justify-content-center"> */}
         {missionsArray.map(oneMission => {
           return (
             <div
@@ -67,9 +68,8 @@ class Charities extends Component {
             </div>
           );
         })}
+        {/* </div> */}
       </div>
-
-      // </div>
     );
   }
 }

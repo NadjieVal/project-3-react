@@ -12,7 +12,7 @@ class Profile extends Component {
 
     return (
       <section className="Profile container">
-        <div className="row">
+        <div className="row justify-content-center">
           <h1>Profile</h1>
           <p>avatar</p>
           <p>
