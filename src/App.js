@@ -90,17 +90,12 @@ class App extends Component {
           <Route path="/charities/:charityId" component={MissionDetails} />
           <Route path="/charities" component={Charities} />
           <Route
-            path="/profile/:userId"
-            render={() => {
-              return <Profile currentUser={this.state.project3User} />;
-            }}
-          />
-          {/* <Route
             path="/profile"
             render={() => {
               return <Profile project3User={this.state.project3User} />;
             }}
-          /> */}
+          />
+
           <Route path="/your-missions" component={YourMissions} />
           <Route path="/add-category" component={AddCategory} />
 
