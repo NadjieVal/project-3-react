@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 
+import Button from "react-bootstrap/Button";
 import "./Dashboard.css";
 import Chart from "./Chart.js";
+
+function converted(mins) {
+  let h = Math.floor(mins / 60);
+  let m = mins % 60;
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  return `${h}h${m}`;
+}
 
 class Dashboard extends Component {
   constructor(props) {
@@ -24,21 +33,22 @@ class Dashboard extends Component {
     ];
     return (
       <section>
+        <h3>3h30</h3>
         {/* <div>
-          <h3>1h35</h3>
+          
           <p>Available Time</p> */}
         {/* <p>{this.state.TimeSaved}</p> */}
         <Chart timeSaved={timeSaved} />
-        {/* </div>
-
 
         <div>
-          <button>Add Time</button>
-          <button>Spend Time</button>
+          <Button variant="secondary">Add Time</Button>
+          <Button variant="secondary">Spend Time</Button>
         </div>
         <div>
           <h5>Recently Added</h5>
         </div>
+        {/* </div>
+       
         <div>
           <ul>
             <li>LOGO + ACTIVITY + TIME SAVED</li>

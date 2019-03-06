@@ -9,6 +9,7 @@ import Categories from "./components/Categories.js";
 import Charities from "./components/MissionsList.js";
 import MissionDetails from "./components/MissionDetails.js";
 import YourMissions from "./components/YourMissions";
+import AddCategory from "./components/AddCategory";
 import Home from "./components/Home.js";
 import Profile from "./components/Profile.js";
 import { getLogOut } from "./api.js";
@@ -101,19 +102,36 @@ class App extends Component {
             }}
           /> */}
           <Route path="/your-missions" component={YourMissions} />
+          <Route path="/add-category" component={AddCategory} />
 
           <Route component={NotFound} />
         </Switch>
         <footer>
-          <nav>
+          <nav className="container-fluid">
             {this.state.project3User ? (
               <span>
-                <NavLink to="/dashboard">Dashboard</NavLink>
+                <NavLink to="/dashboard">
+                  <img
+                    src="/images/dashboard_icon.png"
+                    alt="dashboard-logo"
+                    className="icon"
+                  />
+                </NavLink>
                 <NavLink to="/charities">Missions</NavLink>
-                <NavLink to="/history">History</NavLink>
-                <NavLink to="/profile/:userId">Profile</NavLink>
-                <NavLink to="/your-missions">Your Missions</NavLink>
-
+                <NavLink to="/your-missions">
+                  <img
+                    src="/images/history_icon.png"
+                    alt="history-logo"
+                    className="icon"
+                  />
+                </NavLink>
+                <NavLink to="/profile">
+                  <img
+                    src="/images/profile_icon.png"
+                    alt="profile-logo"
+                    className="icon"
+                  />
+                </NavLink>
                 <span>
                   <NavLink to="/logout" onClick={() => this.logoutClick()}>
                     Log Out

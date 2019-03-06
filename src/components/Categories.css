@@ -12,6 +12,8 @@ ul {
 
 button {
   margin: 10px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .item-logo {
@@ -19,5 +21,9 @@ button {
 }
 
 img {
+  padding-top: 10px;
+}
+
+p {
   padding-top: 10px;
 }
