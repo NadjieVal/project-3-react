@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
+import TabContainer from "react-bootstrap/TabContainer";
 
 import Button from "react-bootstrap/Button";
 import "./Dashboard.css";
@@ -59,15 +64,26 @@ class Dashboard extends Component {
             <li>LOGO + ACTIVITY + TIME SAVED</li>
           </ul>
         </div> */}
+
         <ListGroup>
+          {/* map */}
           <ListGroup.Item>
-            <div className="list">
-              <div>Netflix</div>
-              <div>3h</div>
-            </div>
+            <Tab.Container>
+              <Row className="list">
+                <Col className="leftside">
+                  <img src="./images/netflix_icon.png" />
+                  <div className="description">
+                    <p>Netflix</p>
+                    <p>Date</p>
+                  </div>
+                </Col>
+                <Col className="rightside">
+                  <h2>3h</h2>
+                </Col>
+              </Row>
+            </Tab.Container>
           </ListGroup.Item>
-          <ListGroup.Item>Youtube</ListGroup.Item>
-          <ListGroup.Item>Netflix</ListGroup.Item>
+          {/* end of map */}
         </ListGroup>
       </section>
     );
