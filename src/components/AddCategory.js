@@ -13,10 +13,10 @@ class AddCategory extends Component {
   render() {
     return (
       <section>
-        <h3>Create custom category</h3>
+        <h3 className="h3-add-category">Create custom category</h3>
         <div className="container">
           <Form.Group as={Row} controlId="formPlaintextCustom" className="dark">
-            <Form.Label column xs="2">
+            <Form.Label col-xs="2">
               <img
                 src="/images/default_icon.png"
                 alt="clock_icon"
