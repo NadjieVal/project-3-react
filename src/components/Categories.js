@@ -15,8 +15,10 @@ class Categories extends Component {
 
     this.state = {
       categoryArray: [],
-      show: false
-      // timeSaved: []
+      show: false,
+      timeSaved: [],
+      inputTime: "",
+      categoryId: null
     };
   }
 
@@ -36,21 +38,34 @@ class Categories extends Component {
     this.setState({ show: false });
   }
 
-  handleShow() {
-    this.setState({ show: true });
+  handleShow(oneCategory) {
+    console.log(oneCategory);
+
+    this.setState({ show: true, categoryId: oneCategory._id });
+  }
+
+  genericOnChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    console.log(event.target, "ffffffffff");
+
     const timeSaved = this.state.timeSaved;
 
-    timeSaved.push(event.target.value);
+    timeSaved.push(this.state.inputTime);
 
     this.setState({ timeSaved: timeSaved });
+
+    console.log(timeSaved);
   }
 
   render() {
     const { categoryArray } = this.state;
+    console.log(categoryArray);
+    console.log(this.state);
     return (
       <section className="App ">
         <div className="container">
@@ -63,7 +78,7 @@ class Categories extends Component {
               return (
                 <Button
                   variant="secondary"
-                  onClick={this.handleShow}
+                  onClick={() => this.handleShow(oneCategory)}
                   className="item-btn icon-borders col-5 col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   key={oneCategory._id}
                 >
@@ -93,6 +108,7 @@ class Categories extends Component {
               name="inputTime"
               type="text"
               placeholder="Enter time in minutes"
+              onChange={event => this.genericOnChange(event)}
             />
           </Modal.Body>
           <Modal.Footer>
