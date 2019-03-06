@@ -56,3 +56,9 @@ export function getUserProfile(userId) {
   console.log(userId);
   return backendApi.get(`api/profile/${userId}`).catch(errorHandler);
 }
+
+export function postCategory(categorySubmission) {
+  return backendApi
+    .post("/api/categories", categorySubmission)
+    .catch(errorHandler);
+}
