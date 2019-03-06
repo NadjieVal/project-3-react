@@ -117,7 +117,13 @@ class App extends Component {
                     className="icon"
                   />
                 </NavLink>
-                <NavLink to="/charities">Missions</NavLink>
+                <NavLink to="/charities">
+                  <img
+                    src="/images/missions_icon.png"
+                    alt="missions-logo"
+                    className="icon"
+                  />
+                </NavLink>
                 <NavLink to="/your-missions">
                   <img
                     src="/images/history_icon.png"
