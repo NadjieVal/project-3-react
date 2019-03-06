@@ -51,3 +51,8 @@ export function getMissionsList() {
 export function getMissionDetails(charityId) {
   return backendApi.get(`/api/charities/${charityId}`).catch(errorHandler);
 }
+
+export function getUserProfile(userId) {
+  console.log(userId);
+  return backendApi.get(`api/profile/${userId}`).catch(errorHandler);
+}
