@@ -110,9 +110,9 @@ class App extends Component {
               <span>
                 <NavLink to="/dashboard">Dashboard</NavLink>
                 <NavLink to="/charities">Missions</NavLink>
-                <NavLink to="/history">History</NavLink>
-                <NavLink to="/profile/:userId">Profile</NavLink>
+                {/* <NavLink to="/history">History</NavLink> */}
                 <NavLink to="/your-missions">Your Missions</NavLink>
+                <NavLink to="/profile/:userId">Profile</NavLink>
 
                 <span>
                   <NavLink to="/logout" onClick={() => this.logoutClick()}>
