@@ -1,51 +1,62 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Form";
-import Col from "react-bootstrap/Form";
+// import Row from "react-bootstrap/Form";
+// import Col from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { postCategory } from "../api.js";
+import { Redirect } from "react-router-dom";
 
 import "./AddCategory.css";
 
 class AddCategory extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {};
-  // }
+  constructor(props) {
+    super(props);
+    this.state = { category: "", isSubmitSuccessful: false };
+  }
+
+  addCategory(event) {
+    console.log(event);
+    console.log("clicked add categories");
+
+    postCategory(this.state).then(response => {
+      console.log("add category", response.data);
+
+      this.setState({ isSubmitSuccessful: true });
+    });
+  }
+
+  genericOnChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
   render() {
-    return (
+    console.log(this.state);
+
+    return this.state.isSubmitSuccessful ? (
+      <Redirect to="/categories" />
+    ) : (
       <section>
         <h3 className="h3-add-category">Create custom category</h3>
+
         <div className="container">
-          {/* <Form.Group as={Row} controlId="formPlaintextCustom" className="dark">
-            <Form.Label col-xs="2"> */}
           <img
             src="/images/default_icon.png"
             alt="clock_icon"
             className="custom"
           />
-          {/* </Form.Label>
-            <Col xs="8"> */}
+
           <Form.Control
             className="input-style"
             type="custom"
             placeholder="Enter category title here"
+            name="category"
+            onChange={event => this.genericOnChange(event)}
           />
-
-          {/* </Col> */}
-          {/* </Form.Group> */}
-          {/* <img
-            src="/images/default_icon.png"
-            alt="clock-icon"
-            className="custom col-sm-4"
-          />
-          <Form.Control
-            className="col-sm-8"
-            name="inputTime"
-            type="text"
-            placeholder="Enter category title here"
-          /> */}
         </div>
-        <Button>Save new category</Button>
+        <Button onClick={event => this.addCategory(event)}>
+          Save new category
+        </Button>
       </section>
     );
   }
