@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ListGroup from "react-bootstrap/ListGroup";
 
 import "./Dashboard.css";
 import Chart from "./Chart.js";
@@ -27,7 +28,6 @@ class Dashboard extends Component {
           <h3>1h35</h3>
           <p>Available Time</p> */}
         {/* <p>{this.state.TimeSaved}</p> */}
-
         <Chart timeSaved={timeSaved} />
         {/* </div>
 
@@ -44,8 +44,16 @@ class Dashboard extends Component {
             <li>LOGO + ACTIVITY + TIME SAVED</li>
           </ul>
         </div> */}
-
-        <div className="recently-added" />
+        <ListGroup>
+          <ListGroup.Item>
+            <div className="list">
+              <div>Netflix</div>
+              <div>3h</div>
+            </div>
+          </ListGroup.Item>
+          <ListGroup.Item>Youtube</ListGroup.Item>
+          <ListGroup.Item>Netflix</ListGroup.Item>
+        </ListGroup>
       </section>
     );
   }
