@@ -12,7 +12,7 @@ class Chart extends Component {
         datasets: [
           {
             label: "Netflix",
-            backgroundColor: "rgba(255, 0, 255, 0.75)",
+            backgroundColor: "rgba(133, 104, 152, 0.75)",
             data: [3, 3, 4, 4, 2, 8, 6]
           },
           // {
@@ -22,7 +22,7 @@ class Chart extends Component {
           // },
           {
             label: "Social Media",
-            backgroundColor: "rgba(0, 255, 0, 0.75)",
+            backgroundColor: "rgba(133, 104, 152, 0.75)",
             data: [4, 5, 6, 4, 9, 10, 10]
           }
         ]
@@ -65,7 +65,7 @@ class Chart extends Component {
       labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
       datasets: [
         {
-          backgroundColor: "rgba(255, 0, 255, 0.75)",
+          backgroundColor: "rgba(133, 104, 152, 0.75)",
           data: dayTotals
         }
       ]
