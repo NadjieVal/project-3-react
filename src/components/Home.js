@@ -10,17 +10,18 @@ class Home extends Component {
         <div className="row justify-content-center">
           <div className="form-contain">
             <div className="branding">
-              <p>[logo]</p>
+              <img src="./images/timefor_logo.png" className="logo" />
               <h2>TimeFor</h2>
             </div>
+            <div className="auth-entry">
+              <Link to="/login">
+                <button className="primary-btn">Log In</button>
+              </Link>
 
-            <Link to="/login">
-              <button className="primary-btn">Log In</button>
-            </Link>
-
-            <Link to="/signup">
-              <button className="primary-btn">Sign Up</button>
-            </Link>
+              <Link to="/signup">
+                <button className="primary-btn">Sign Up</button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -14,6 +14,16 @@
   border: 1px solid #cacaca;
 }
 
+.logo {
+  width: 80px;
+  margin: 16px;
+  padding: 0px;
+}
+
+.auth-entry {
+  margin: 40px 0px;
+}
+
 /*** Typographic Elements ***/
 
 h2 {
@@ -53,11 +63,10 @@ input {
 }
 
 .form-contain {
-  /* border: 1px solid #eeeeef; */
+  text-align: center;
   width: 370px;
   padding: 1.5rem;
   padding-bottom: 0.5rem;
-  /* background-color: #f6f7f9; */
 }
 
 /*** Interactive Elements ***/
@@ -78,9 +87,8 @@ input {
   height: 50px;
   border: none;
   margin: 1rem;
-  border-radius: 10px;
+  border-radius: 3px;
 }
-/* } */
 
 .col-sm-6 {
   width: 50% !important;
@@ -91,13 +99,36 @@ input {
 nav {
   position: fixed;
   bottom: 0;
-  background-color: gray;
   display: flex;
-  justify-content: space-around;
+  padding: 10px 0px;
+  justify-content: space-evenly;
+  background-color: white;
 }
 
 .icon {
-  width: 20px;
-  height: 25px;
-  margin: 5px 20px;
+  height: 30px;
+  padding-top: 0px;
+}
+
+.App nav a.active {
+  color: #b447e7;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.boxshadow {
+  position: fixed;
+  -moz-box-shadow: 1px 0px 12px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 0px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 12px rgba(0, 0, 0, 0.1);
+  /* padding: 10px; */
+  /* background: white; */
+}
+
+.tab-nav {
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  /* background-color: red; */
 }
