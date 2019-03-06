@@ -1,5 +1,6 @@
-.charity-logo {
-  max-width: 100px;
+.card-back {
+  max-height: 100%;
+  width: auto;
   object-fit: contain;
   margin-top: 15px;
 }
