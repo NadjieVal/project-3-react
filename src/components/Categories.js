@@ -66,18 +66,18 @@ class Categories extends Component {
     }
 
     return (
-      <section className="App container text-center">
+      <section className="App container text-center marginBottom ">
         <h1>From which activity do you want to save time?</h1>
         {/* <div className="col-12" /> */}
 
-        <ul className="row justify-content-center w-100 margin">
+        <ul className=" row justify-content-center w-100">
           {categoryArray.map(oneCategory => {
             return (
               <li className="col-lg-4 col-md-6 col-sm-6 w-100">
                 <Button
                   variant="secondary"
                   onClick={() => this.handleShow(oneCategory)}
-                  className="item-btn icon-borders w-100"
+                  className="item-btn icon-borders w-100 boxes"
                   key={oneCategory._id}
                 >
                   <img

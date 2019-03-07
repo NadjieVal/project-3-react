@@ -90,10 +90,10 @@ class Dashboard extends Component {
         </div>
         <h5>Recently Added</h5>
 
-        <ListGroup>
+        <ListGroup className="big-list">
           {timeSaved.map(oneCategory => {
             return (
-              <ListGroup.Item key={oneCategory._id}>
+              <ListGroup.Item className="cards" key={oneCategory._id}>
                 <Tab.Container>
                   <Row className="list">
                     <Col className="leftside">

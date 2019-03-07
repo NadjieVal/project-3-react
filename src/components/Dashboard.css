@@ -1,7 +1,5 @@
 .list {
-  background-color: lightgray;
   padding: 10px;
-  margin-bottom: 30px;
 }
 
 .list img {
@@ -11,7 +9,9 @@
   padding: 0;
   margin: 10px 0;
 }
-
+.cards {
+  margin-bottom: 10px;
+}
 .leftside {
   display: flex;
   justify-content: flex-start;
@@ -48,4 +48,7 @@
 }
 .time-detail {
   font-size: 22px;
+}
+.big-list {
+  margin-bottom: 80px;
 }

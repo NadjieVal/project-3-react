@@ -1,10 +1,13 @@
 .category-icons {
   max-height: 30px;
 }
-.icon-borders {
-  border: 2px;
+/* .icon-borders {
+  border: solid lightgray 1;
+} */
+.btn-secondary {
+  background-color: white !important;
+  color: black;
 }
-
 ul {
   list-style-type: none;
   padding-inline-start: 0;
@@ -19,9 +22,13 @@ button {
 .categoryName {
   font-weight: bold;
 }
-.margin {
-  margin-bottom: 40px;
+.categoryName:hover {
+  color: grey;
 }
+
+/* .margin {
+  margin-bottom: 40px;
+} */
 
 .item-logo {
   max-height: 35px;
@@ -33,4 +40,12 @@ img {
 
 p {
   padding-top: 10px;
+}
+.boxes {
+  border: 1px solid #d6d6d6;
+  border-radius: 3px;
+  background-color: white;
+  -moz-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
 }
