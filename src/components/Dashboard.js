@@ -3,18 +3,27 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Tab from "react-bootstrap/Tab";
-import { getTimeList } from "../api.js";
+import { getTimeList, getMissionHistory, getCategoryList } from "../api.js";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 import "./Dashboard.css";
 import Chart from "./Chart.js";
 
 function converted(mins) {
+  const originalMinutes = mins;
+  mins = Math.abs(mins);
+
   let h = Math.floor(mins / 60);
   let m = mins % 60;
   h = h < 10 ? "0" + h : h;
   m = m < 10 ? "0" + m : m;
-  return `${h}h${m}`;
+
+  if (originalMinutes < 0) {
+    return `-${h}h${m}`;
+  } else {
+    return `${h}h${m}`;
+  }
 }
 
 class Dashboard extends Component {
@@ -23,27 +32,47 @@ class Dashboard extends Component {
 
     this.state = {
       category: [],
-      timeSaved: []
+      timeSaved: [],
+      missionsBooked: []
     };
   }
 
   componentDidMount() {
     getTimeList().then(response => {
-      console.log("Time time time", response.data);
+      //console.log("Time time time", response.data);
       this.setState({ timeSaved: response.data });
+    });
+
+    getCategoryList().then(response => {
+      this.setState({ category: response.data });
+    });
+
+    getMissionHistory().then(response => {
+      console.log("mission mission mission", response.data);
+      this.setState({ missionsBooked: response.data });
     });
   }
 
   render() {
-    const { timeSaved } = this.state;
+    const { timeSaved, missionsBooked } = this.state;
 
     const totalMinutes = timeSaved.reduce(
       (sum, oneInput) => sum + oneInput.time,
       0
     );
+    const missionMinutes = missionsBooked.reduce(
+      (sum, oneMission) => sum + oneMission.duration,
+      0
+    );
+
+    const { category } = this.state;
+    console.log(category);
+
+    console.log(totalMinutes - missionMinutes);
     return (
       <section>
-        <h3>{converted(totalMinutes)}</h3>
+        <h3>{converted(totalMinutes - missionMinutes)}</h3>
+
         <Chart timeSaved={timeSaved} />
 
         <div>
@@ -59,24 +88,30 @@ class Dashboard extends Component {
         </div>
 
         <ListGroup>
-          {/* map */}
-          <ListGroup.Item>
-            <Tab.Container>
-              <Row className="list">
-                <Col className="leftside">
-                  <img src="./images/netflix_icon.png" alt="icon" />
-                  <div className="description">
-                    <p>Netflix</p>
-                    <p>Date</p>
-                  </div>
-                </Col>
-                <Col className="rightside">
-                  <h2>3h</h2>
-                </Col>
-              </Row>
-            </Tab.Container>
-          </ListGroup.Item>
-          {/* end of map */}
+          {timeSaved.map(oneCategory => {
+            return (
+              <ListGroup.Item key={oneCategory._id}>
+                <Tab.Container>
+                  <Row className="list">
+                    <Col className="leftside">
+                      <img src={oneCategory.category.icon} alt="icon" />
+                      <div className="description">
+                        <p>{oneCategory.category.name}</p>
+
+                        {/* {timeSaved.map(oneTime => (
+                          <p>{oneTime}</p>
+                        ))} */}
+                        <p>{moment(oneCategory.createdAt).format("MMM Do")}</p>
+                      </div>
+                    </Col>
+                    <Col className="rightside">
+                      <h2>{converted(oneCategory.time)}</h2>
+                    </Col>
+                  </Row>
+                </Tab.Container>
+              </ListGroup.Item>
+            );
+          })}
         </ListGroup>
       </section>
     );

@@ -33,22 +33,27 @@ class Categories extends Component {
     this.setState({ show: false });
   }
 
-  handleShow() {
-    this.setState({ show: true });
+  handleShow(oneCategory) {
+    console.log(oneCategory);
+
+    this.setState({ show: true, categoryId: oneCategory._id });
+  }
+
+  genericOnChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
+
     const timeSaved = this.state.timeSaved;
 
     postTime(this.state).then(response => {
       console.log("add time", response.data);
 
-      //timeSaved.push(this.state.inputTime);
       this.setState({ timeSaved: response.data });
     });
-
-    console.log(timeSaved);
   }
 
   render() {
@@ -71,7 +76,7 @@ class Categories extends Component {
               <li className="col-lg-4 col-md-6 col-sm-12 w-100">
                 <Button
                   variant="secondary"
-                  onClick={this.handleShow}
+                  onClick={() => this.handleShow(oneCategory)}
                   className="item-btn icon-borders w-100"
                   key={oneCategory._id}
                 >
@@ -100,8 +105,10 @@ class Categories extends Component {
             <Form.Control
               name="inputTime"
               value={this.state.inputTime}
+              onChange={event => this.genericOnChange(event)}
               type="text"
               placeholder="Enter time in minutes"
+              onChange={event => this.genericOnChange(event)}
             />
           </Modal.Body>
           <Modal.Footer>

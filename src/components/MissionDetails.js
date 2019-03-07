@@ -3,7 +3,12 @@ import { Link, Redirect } from "react-router-dom";
 
 import "./MissionDetails.css";
 
-import { getMissionDetails, postMission } from "../api.js";
+import {
+  getMissionDetails,
+  postMission,
+  getTimeList,
+  getMissionHistory
+} from "../api.js";
 
 import moment from "moment";
 
@@ -12,14 +17,25 @@ class MissionDetails extends Component {
     super(props);
     this.state = {
       missionItem: {},
-      missionAccomplished: false,
       isMissionCheckout: false,
+      timeSaved: [],
+      missionsBooked: [],
       duration: null
     };
   }
 
   componentDidMount() {
     const { params } = this.props.match;
+
+    getTimeList().then(response => {
+      console.log("Time time time", response.data);
+      this.setState({ timeSaved: response.data });
+    });
+
+    getMissionHistory().then(response => {
+      console.log("mission mission mission", response.data);
+      this.setState({ missionsBooked: response.data });
+    });
 
     getMissionDetails(params.charityId).then(response => {
       this.setState({ missionItem: response.data });
@@ -28,18 +44,43 @@ class MissionDetails extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target, "aaaa");
 
-    postMission(this.state).then(response => {
-      console.log("add mission", response.data);
+    const {
+      charityLogo,
+      charityName,
+      missionName,
+      duration
+    } = this.state.missionItem;
+    const { timeSaved, missionsBooked } = this.state;
 
-      this.setState({ isMissionCheckout: true });
-    });
+    const totalMinutes = timeSaved.reduce(
+      (sum, oneInput) => sum + oneInput.time,
+      0
+    );
+
+    const missionMinutes = missionsBooked.reduce(
+      (sum, oneMission) => sum + oneMission.duration,
+      0
+    );
+    const totalTime = totalMinutes - missionMinutes;
+
+    if (totalTime < duration) {
+      alert("You need to save more time to book this mission");
+      return;
+    }
+
+    postMission({ charityLogo, charityName, missionName, duration }).then(
+      response => {
+        console.log("add mission", response.data);
+
+        this.setState({ isMissionCheckout: true });
+      }
+    );
   }
   render() {
-    const { missionItem, missionAccomplished } = this.state;
+    const { missionItem, isMissionCheckout } = this.state;
 
-    if (missionAccomplished) {
+    if (isMissionCheckout) {
       return <Redirect to="/your-missions" />;
     }
 
