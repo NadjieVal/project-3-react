@@ -9,11 +9,6 @@
 
 /*** General Elements ***/
 
-.general-layout {
-  margin: auto 10%;
-  border: 1px solid #cacaca;
-}
-
 .logo {
   width: 80px;
   margin: 16px;
@@ -29,6 +24,7 @@
 h1 {
   font-size: 2rem;
   font-weight: 700;
+  text-align: center;
 }
 
 h2 {
@@ -48,7 +44,6 @@ h5 {
 }
 
 .description {
-  /* text-align: justify; */
   margin: 0px;
   margin-left: 0px;
   margin-right: 0px;
@@ -129,10 +124,7 @@ nav {
 }
 
 .App nav a.active {
-  color: #b447e7;
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
+  filter: brightness(0.5) sepia(11) hue-rotate(177deg) saturate(31);
 }
 
 .boxshadow {
@@ -152,23 +144,22 @@ nav {
 
 .charity-logo {
   padding-top: 0px;
-  width: 270px;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
 }
 
 .mission-name {
   margin: 30px 0px;
 }
 
-.mission-cards {
+.mission-card {
   border: 1px solid #d6d6d6;
   border-radius: 3px;
   background-color: white;
-  padding: 30px 15px;
-  margin: 15px;
-}
-
-.card-shadow {
-  position: relative;
+  padding: 30px 20px;
+  margin: 15px 0;
   -moz-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
@@ -188,14 +179,37 @@ nav {
   margin-left: 10px;
 }
 
-@media (max-width: 991px) {
-  .charity-content {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
+.marginBottom {
+  margin-bottom: 70px;
+}
 
-  .charity-content-margin {
-    margin-top: 20px;
-  }
+.addMargins {
+  border: 1px solid #d6d6d6;
+  border-radius: 3px;
+  background-color: white;
+  padding: 30px 20px;
+  margin: 15px 0;
+  -moz-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  height: 500px;
+}
+
+.descriptionSize {
+  height: 35px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.charity-logo-2 {
+  padding-top: 0px;
+  width: 80%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.marginSides {
+  margin: 0 10px;
 }

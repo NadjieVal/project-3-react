@@ -37,7 +37,7 @@ class Charities extends Component {
     const { missionsArray } = this.state;
     return (
       <section div className="App container">
-        <div className="row justify-content-center">
+        <div className="marginBottom row justify-content-center">
           <h1>Available Missions</h1>
 
           <SearchBar
@@ -51,41 +51,33 @@ class Charities extends Component {
             //   missionsArray.charityName.indexOf(this.props.searchFilter) > -1
             // ) {
             return (
-              <div className="container-fluid mission-cards card-shadow justify-content-center">
-                <div>
-                  <div className="d-flex charity-content">
-                    <div key={oneMission._id} className="col-lg-4">
-                      <img
-                        src={oneMission.charityLogo}
-                        className="charity-logo"
-                        alt={oneMission.charityName}
-                      />
-                    </div>
+              <div
+                key={oneMission._id}
+                className="text-center col-lg-4 col-md-6 col-sm-12 mission-cards card-shadow justify-content-center"
+              >
+                <div className="addMargins d-flex flex-column align-items-center">
+                  <img
+                    src={oneMission.charityLogo}
+                    className="charity-logo"
+                    alt={oneMission.charityName}
+                  />
 
-                    <div className="charity-content col-lg-8">
-                      <div className="charity-content-margin">
-                        <h3>{oneMission.missionName}</h3>
-                        <p className="bold-text line-height">
-                          {oneMission.charityName}
-                        </p>
-                        <p className="line-height">
-                          {moment(oneMission.date).format("YYYY MM DD")} |{" "}
-                          {oneMission.missionTime}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-12">
-                    <p className="">{oneMission.missionIntro}</p>
-                    <div className="mission-card-btn">
-                      <span>
-                        <Link to={missionAddress(oneMission)}>
-                          <button className="primary-btn">See Details</button>
-                        </Link>
-                      </span>
-                    </div>
-                  </div>
+                  <h3 className="descriptionSize w-100">
+                    {oneMission.missionName}
+                  </h3>
+                  <p className="bold-text line-height">
+                    {oneMission.charityName}
+                  </p>
+                  <p className="line-height">
+                    {moment(oneMission.date).format("YYYY MM DD")} |{" "}
+                    {oneMission.missionTime}
+                  </p>
+                  <p className="descriptionSize w-100">
+                    {oneMission.missionIntro}
+                  </p>
+                  <Link to={missionAddress(oneMission)}>
+                    <button className="primary-btn">See Details</button>
+                  </Link>
                 </div>
               </div>
             );

@@ -107,28 +107,28 @@ class App extends Component {
               <span className="tab-nav">
                 <NavLink to="/dashboard">
                   <img
-                    src="/images/dashboard_icon.png"
+                    src="/images/dashboard_icon.svg"
                     alt="Dashboard"
                     className="icon"
                   />
                 </NavLink>
                 <NavLink to="/charities">
                   <img
-                    src="/images/missions_icon.png"
+                    src="/images/missions_icon.svg"
                     alt="Missions"
                     className="icon"
                   />
                 </NavLink>
                 <NavLink to="/your-missions">
                   <img
-                    src="/images/history_icon.png"
+                    src="/images/history_icon.svg"
                     alt="History"
                     className="icon"
                   />
                 </NavLink>
                 <NavLink to="/profile">
                   <img
-                    src="/images/profile_icon.png"
+                    src="/images/profile_icon.svg"
                     alt="Profile"
                     className="icon"
                   />

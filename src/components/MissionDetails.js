@@ -45,54 +45,87 @@ class MissionDetails extends Component {
 
     return (
       <section div className="App container">
-        <div className="row justify-content-center">
-          <div className="container-fluid mission-cards card-shadow justify-content-center">
-            <div>
-              <div className="d-flex charity-content">
-                <div className="col-lg-4">
-                  <img
-                    src={missionItem.charityLogo}
-                    className="charity-logo"
-                    alt={missionItem.charityName}
-                  />
-                </div>
+        <div className="marginBottom row justify-content-center">
+          <div
+            key={missionItem._id}
+            className="text-center col-lg-8 col-md-10 col-sm-12 m-auto  card-shadow justify-content-center"
+          >
+            <div className="mission-card d-flex flex-column align-items-center">
+              <img
+                src={missionItem.charityLogo}
+                className="charity-logo-2"
+                alt={missionItem.charityName}
+              />
 
-                <div className="charity-content col-lg-8">
-                  <div className="charity-content-margin">
-                    <h3>{missionItem.missionName}</h3>
-                    <p className="bold-text line-height">
-                      {missionItem.charityName}
-                    </p>
-                    <p className="line-height">
-                      {moment(missionItem.missionDate).format("YYYY MM DD")} |{" "}
-                      {missionItem.missionTime}
-                    </p>
-                    <p className="line-height">{missionItem.location}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-12">
-                <p className="">{missionItem.missionDescription}</p>
-                <p className="text-link">{missionItem.email}</p>
-                <p className="text-link">{missionItem.charityUrl}</p>
-                <div className="mission-card-btn">
-                  <span>
-                    <Link to="/your-missions">
-                      <button
-                        className="primary-btn"
-                        onClick={event => this.handleSubmit(event)}
-                      >
-                        Book this mission
-                      </button>
-                    </Link>
-                  </span>
-                </div>
-              </div>
+              <h3 className="">{missionItem.missionName}</h3>
+              <p className="bold-text line-height">{missionItem.charityName}</p>
+              <p className="line-height">
+                {moment(missionItem.date).format("YYYY MM DD")} |{" "}
+                {missionItem.missionTime}
+              </p>
+              <p className="">{missionItem.missionDescription}</p>
+              <Link to="/your-missions">
+                <button
+                  className="primary-btn"
+                  onClick={event => this.handleSubmit(event)}
+                >
+                  Book this mission
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
+
+      // <section div className="App container">
+      //   <div className="marginBottom row justify-content-center">
+      //     <div className="container-fluid mission-cards card-shadow justify-content-center">
+      //       <div>
+      //         <div className="d-flex charity-content">
+      //           <div className="col-lg-4">
+      //             <img
+      //               src={missionItem.charityLogo}
+      //               className="charity-logo"
+      //               alt={missionItem.charityName}
+      //             />
+      //           </div>
+
+      //           <div className="charity-content col-lg-8">
+      //             <div className="charity-content-margin">
+      //               <h3>{missionItem.missionName}</h3>
+      //               <p className="bold-text line-height">
+      //                 {missionItem.charityName}
+      //               </p>
+      //               <p className="line-height">
+      //                 {moment(missionItem.missionDate).format("YYYY MM DD")} |{" "}
+      //                 {missionItem.missionTime}
+      //               </p>
+      //               <p className="line-height">{missionItem.location}</p>
+      //             </div>
+      //           </div>
+      //         </div>
+
+      //         <div className="col-12">
+      //           <p className="">{missionItem.missionDescription}</p>
+      //           <p className="text-link">{missionItem.email}</p>
+      //           <p className="text-link">{missionItem.charityUrl}</p>
+      //           <div className="mission-card-btn">
+      //             <span>
+      //               <Link to="/your-missions">
+      //                 <button
+      //                   className="primary-btn"
+      //                   onClick={event => this.handleSubmit(event)}
+      //                 >
+      //                   Book this mission
+      //                 </button>
+      //               </Link>
+      //             </span>
+      //           </div>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </div>
+      // </section>
     );
   }
 }
