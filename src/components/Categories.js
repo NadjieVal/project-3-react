@@ -34,26 +34,26 @@ class Categories extends Component {
   }
 
   handleShow(oneCategory) {
-    this.setState({ categoryId: oneCategory._id, show: true });
-  }
+    console.log(oneCategory);
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const timeSaved = this.state.timeSaved;
-
-    postTime(this.state).then(response => {
-      console.log("add time", response.data);
-
-      //timeSaved.push(this.state.inputTime);
-      this.setState({ timeSaved: response.data });
-    });
-
-    console.log(timeSaved);
+    this.setState({ show: true, categoryId: oneCategory._id });
   }
 
   genericOnChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const timeSaved = this.state.timeSaved;
+
+    postTime(this.state).then(response => {
+      console.log("add time", response.data);
+
+      this.setState({ timeSaved: response.data });
+    });
   }
 
   render() {
@@ -109,6 +109,7 @@ class Categories extends Component {
               onChange={event => this.genericOnChange(event)}
               type="text"
               placeholder="Enter time in minutes"
+              onChange={event => this.genericOnChange(event)}
             />
           </Modal.Body>
           <Modal.Footer>

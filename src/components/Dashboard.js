@@ -3,8 +3,9 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Tab from "react-bootstrap/Tab";
-import { getTimeList, getMissionHistory } from "../api.js";
+import { getTimeList, getMissionHistory, getCategoryList } from "../api.js";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 import "./Dashboard.css";
 import Chart from "./Chart.js";
@@ -38,8 +39,12 @@ class Dashboard extends Component {
 
   componentDidMount() {
     getTimeList().then(response => {
-      console.log("Time time time", response.data);
+      //console.log("Time time time", response.data);
       this.setState({ timeSaved: response.data });
+    });
+
+    getCategoryList().then(response => {
+      this.setState({ category: response.data });
     });
 
     getMissionHistory().then(response => {
@@ -55,11 +60,13 @@ class Dashboard extends Component {
       (sum, oneInput) => sum + oneInput.time,
       0
     );
-
     const missionMinutes = missionsBooked.reduce(
       (sum, oneMission) => sum + oneMission.duration,
       0
     );
+
+    const { category } = this.state;
+    console.log(category);
 
     console.log(totalMinutes - missionMinutes);
     return (
@@ -81,24 +88,30 @@ class Dashboard extends Component {
         </div>
 
         <ListGroup>
-          {/* map */}
-          <ListGroup.Item>
-            <Tab.Container>
-              <Row className="list">
-                <Col className="leftside">
-                  <img src="./images/netflix_icon.png" alt="icon" />
-                  <div className="description">
-                    <p>Netflix</p>
-                    <p>Date</p>
-                  </div>
-                </Col>
-                <Col className="rightside">
-                  <h2>3h</h2>
-                </Col>
-              </Row>
-            </Tab.Container>
-          </ListGroup.Item>
-          {/* end of map */}
+          {timeSaved.map(oneCategory => {
+            return (
+              <ListGroup.Item key={oneCategory._id}>
+                <Tab.Container>
+                  <Row className="list">
+                    <Col className="leftside">
+                      <img src={oneCategory.category.icon} alt="icon" />
+                      <div className="description">
+                        <p>{oneCategory.category.name}</p>
+
+                        {/* {timeSaved.map(oneTime => (
+                          <p>{oneTime}</p>
+                        ))} */}
+                        <p>{moment(oneCategory.createdAt).format("MMM Do")}</p>
+                      </div>
+                    </Col>
+                    <Col className="rightside">
+                      <h2>{converted(oneCategory.time)}</h2>
+                    </Col>
+                  </Row>
+                </Tab.Container>
+              </ListGroup.Item>
+            );
+          })}
         </ListGroup>
       </section>
     );
