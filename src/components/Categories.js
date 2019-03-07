@@ -73,7 +73,7 @@ class Categories extends Component {
         <ul className="row justify-content-center w-100">
           {categoryArray.map(oneCategory => {
             return (
-              <li className="col-lg-4 col-md-6 col-sm-12 w-100">
+              <li className="col-lg-4 col-md-6 col-sm-6 w-100">
                 <Button
                   variant="secondary"
                   onClick={() => this.handleShow(oneCategory)}
@@ -85,7 +85,7 @@ class Categories extends Component {
                     className="img-fluid item-logo"
                     alt="foo"
                   />
-                  <p className="px-2">{oneCategory.name}</p>
+                  <p className="">{oneCategory.name}</p>
                 </Button>
               </li>
             );
