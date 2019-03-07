@@ -3,18 +3,26 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Tab from "react-bootstrap/Tab";
-import { getTimeList } from "../api.js";
+import { getTimeList, getMissionHistory } from "../api.js";
 import { Link } from "react-router-dom";
 
 import "./Dashboard.css";
 import Chart from "./Chart.js";
 
 function converted(mins) {
+  const originalMinutes = mins;
+  mins = Math.abs(mins);
+
   let h = Math.floor(mins / 60);
   let m = mins % 60;
   h = h < 10 ? "0" + h : h;
   m = m < 10 ? "0" + m : m;
-  return `${h}h${m}`;
+
+  if (originalMinutes < 0) {
+    return `-${h}h${m}`;
+  } else {
+    return `${h}h${m}`;
+  }
 }
 
 class Dashboard extends Component {
@@ -23,7 +31,8 @@ class Dashboard extends Component {
 
     this.state = {
       category: [],
-      timeSaved: []
+      timeSaved: [],
+      missionsBooked: []
     };
   }
 
@@ -32,18 +41,31 @@ class Dashboard extends Component {
       console.log("Time time time", response.data);
       this.setState({ timeSaved: response.data });
     });
+
+    getMissionHistory().then(response => {
+      console.log("mission mission mission", response.data);
+      this.setState({ missionsBooked: response.data });
+    });
   }
 
   render() {
-    const { timeSaved } = this.state;
+    const { timeSaved, missionsBooked } = this.state;
 
     const totalMinutes = timeSaved.reduce(
       (sum, oneInput) => sum + oneInput.time,
       0
     );
+
+    const missionMinutes = missionsBooked.reduce(
+      (sum, oneMission) => sum + oneMission.duration,
+      0
+    );
+
+    console.log(totalMinutes - missionMinutes);
     return (
       <section>
-        <h3>{converted(totalMinutes)}</h3>
+        <h3>{converted(totalMinutes - missionMinutes)}</h3>
+
         <Chart timeSaved={timeSaved} />
 
         <div>
