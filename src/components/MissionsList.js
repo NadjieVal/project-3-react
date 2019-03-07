@@ -51,10 +51,13 @@ class Charities extends Component {
             //   missionsArray.charityName.indexOf(this.props.searchFilter) > -1
             // ) {
             return (
-              <div className="container-fluid mission-cards card-shadow justify-content-center">
+              <div
+                key={oneMission._id}
+                className="container-fluid mission-cards card-shadow justify-content-center"
+              >
                 <div>
                   <div className="d-flex charity-content">
-                    <div key={oneMission._id} className="col-lg-4">
+                    <div className="col-lg-4">
                       <img
                         src={oneMission.charityLogo}
                         className="charity-logo"
