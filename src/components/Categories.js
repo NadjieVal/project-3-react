@@ -30,11 +30,6 @@ class Categories extends Component {
   }
 
   handleClose() {
-    // const timeSaved = this.state.timeSaved;
-
-    // timeSaved.push(event.target.value);
-
-    // this.setState({ timeSaved: timeSaved });
     this.setState({ show: false });
   }
 
@@ -47,28 +42,18 @@ class Categories extends Component {
   genericOnChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-    this.setState({ categoryId: oneCategory._id, show: true });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target, "ffffffffff");
 
     const timeSaved = this.state.timeSaved;
 
     postTime(this.state).then(response => {
       console.log("add time", response.data);
 
-      //timeSaved.push(this.state.inputTime);
       this.setState({ timeSaved: response.data });
     });
-
-    console.log(timeSaved);
-  }
-
-  genericOnChange(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
   }
 
   render() {
