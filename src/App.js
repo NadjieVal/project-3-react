@@ -102,34 +102,34 @@ class App extends Component {
           <Route component={NotFound} />
         </Switch>
         <footer>
-          <nav className="container-fluid">
+          <nav className="container-fluid boxshadow">
             {this.state.project3User ? (
-              <span>
+              <span className="tab-nav">
                 <NavLink to="/dashboard">
                   <img
                     src="/images/dashboard_icon.png"
-                    alt="dashboard-logo"
+                    alt="Dashboard"
                     className="icon"
                   />
                 </NavLink>
                 <NavLink to="/charities">
                   <img
                     src="/images/missions_icon.png"
-                    alt="missions-logo"
+                    alt="Missions"
                     className="icon"
                   />
                 </NavLink>
                 <NavLink to="/your-missions">
                   <img
                     src="/images/history_icon.png"
-                    alt="history-logo"
+                    alt="History"
                     className="icon"
                   />
                 </NavLink>
                 <NavLink to="/profile">
                   <img
                     src="/images/profile_icon.png"
-                    alt="profile-logo"
+                    alt="Profile"
                     className="icon"
                   />
                 </NavLink>
