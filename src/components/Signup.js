@@ -41,7 +41,7 @@ class Signup extends Component {
           {project3User ? (
             <Redirect to="/" />
           ) : (
-            <div className="form-contain">
+            <div className="contain-center">
               <h2>Sign Up</h2>
 
               <p className="small-text">
