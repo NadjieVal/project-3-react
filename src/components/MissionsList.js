@@ -57,7 +57,7 @@ class Charities extends Component {
                   <p className="card-text description">
                     {oneMission.missionIntro}
                   </p>
-                  {/* <a href="#" className="btn btn-primary"> */}
+
                   <a
                     href={missionAddress(oneMission)}
                     className="btn btn-primary"
