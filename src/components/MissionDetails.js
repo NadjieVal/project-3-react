@@ -27,11 +27,16 @@ class MissionDetails extends Component {
     return (
       <section className="MissionDetails container">
         <div className="row justify-content-center">
-          <div className="general-layout">
+          <div className="container-fluid mission-cards justify-content-center">
             <div className="d-flex justify-content-center">
               <div>
-                <img src="..." className="align-self-start mr-3" alt="..." />
+                <img
+                  src={missionItem.charityLogo}
+                  className="charity-logo"
+                  alt={missionItem.charityName}
+                />{" "}
               </div>
+
               <div>
                 <h4 className="mt-0">{missionItem.missionName}</h4>
                 <p>{missionItem.charityName}</p>
