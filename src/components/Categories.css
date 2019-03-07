@@ -16,8 +16,15 @@ button {
   margin-left: auto;
 }
 
+.categoryName {
+  font-weight: bold;
+}
+.margin {
+  margin-bottom: 40px;
+}
+
 .item-logo {
-  max-height: 25px;
+  max-height: 35px;
 }
 
 img {

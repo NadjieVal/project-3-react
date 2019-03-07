@@ -95,6 +95,7 @@ class Dashboard extends Component {
                   <Row className="list">
                     <Col className="leftside">
                       <img src={oneCategory.category.icon} alt="icon" />
+
                       <div className="description">
                         <p>{oneCategory.category.name}</p>
 

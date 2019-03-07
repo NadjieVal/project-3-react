@@ -70,7 +70,7 @@ class Categories extends Component {
         <h1>From which activity do you want to save time?</h1>
         {/* <div className="col-12" /> */}
 
-        <ul className="row justify-content-center w-100">
+        <ul className="row justify-content-center w-100 margin">
           {categoryArray.map(oneCategory => {
             return (
               <li className="col-lg-4 col-md-6 col-sm-6 w-100">
@@ -85,7 +85,7 @@ class Categories extends Component {
                     className="img-fluid item-logo"
                     alt="foo"
                   />
-                  <p className="">{oneCategory.name}</p>
+                  <p className="categoryName">{oneCategory.name}</p>
                 </Button>
               </li>
             );
