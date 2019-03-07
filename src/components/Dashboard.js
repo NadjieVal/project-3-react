@@ -70,22 +70,25 @@ class Dashboard extends Component {
 
     console.log(totalMinutes - missionMinutes);
     return (
-      <section>
-        <h3>{converted(totalMinutes - missionMinutes)}</h3>
+      <section className="App container">
+        <h1>Time Saved</h1>
+        <div className="dashboard-bg">
+          <h3 className="text-center">
+            {converted(totalMinutes - missionMinutes)}
+          </h3>
+          <Chart timeSaved={timeSaved} />
 
-        <Chart timeSaved={timeSaved} />
-
-        <div>
-          <Link to="/categories">
-            <button className="primary-btn">Add Time</button>
-          </Link>
-          <Link to="/charities">
-            <button className="primary-btn">Spend Time</button>
-          </Link>
+          <div className="text-center d-flex justify-content-center">
+            <Link to="/categories">
+              <button className="category-btn">Add Time</button>
+            </Link>
+            <Link to="/charities">
+              <button className="category-btn">Spend Time</button>
+            </Link>
+          </div>
+          <div />
         </div>
-        <div>
-          <h5>Recently Added</h5>
-        </div>
+        <h5>Recently Added</h5>
 
         <ListGroup>
           {timeSaved.map(oneCategory => {

@@ -36,7 +36,7 @@ h4 {
 }
 
 h5 {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .bold-text {
@@ -212,4 +212,29 @@ nav {
 
 .marginSides {
   margin: 0 10px;
+}
+
+/*** Dashboard Page ***/
+
+.category-btn {
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  background-image: linear-gradient(to bottom right, #3d90de, #7ae0eb);
+  width: 160px;
+  height: 50px;
+  border: none;
+  margin: 16px 8px;
+  border-radius: 3px;
+}
+
+.dashboard-bg {
+  /* border: 1px solid #d6d6d6;
+  border-radius: 3px;
+  background-color: white; */
+  padding: 30px 20px;
+  margin: 15px 0;
+  /* -moz-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1); */
 }
