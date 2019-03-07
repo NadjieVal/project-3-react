@@ -78,7 +78,7 @@ class Categories extends Component {
                 <Button
                   variant="secondary"
                   onClick={() => this.handleShow(oneCategory)}
-                  className="item-btn icon-borders col-5 col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                  className="item-btn icon-borders col-5"
                   key={oneCategory._id}
                 >
                   <img
