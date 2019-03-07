@@ -97,7 +97,7 @@ class Dashboard extends Component {
                     <Col className="leftside">
                       <img src={oneCategory.category.icon} alt="icon" />
                       <div className="description">
-                        {/* <p>{oneCategory.name}</p> */}
+                        <p>{oneCategory.category.name}</p>
 
                         {/* {timeSaved.map(oneTime => (
                           <p>{oneTime}</p>
@@ -106,7 +106,7 @@ class Dashboard extends Component {
                       </div>
                     </Col>
                     <Col className="rightside">
-                      <h2>{oneCategory.time}</h2>
+                      <h2>{converted(oneCategory.time)}</h2>
                     </Col>
                   </Row>
                 </Tab.Container>
