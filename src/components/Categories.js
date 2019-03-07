@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./Categories.css";
 
-import { getCategoryList } from "../api.js";
+import { getCategoryList, postTime } from "../api.js";
 
 class Categories extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Categories extends Component {
     this.state = {
       categoryArray: [],
       show: false,
-      timeSaved: [],
+      timeSaved: null,
       inputTime: "",
       categoryId: null
     };
@@ -30,42 +30,36 @@ class Categories extends Component {
   }
 
   handleClose() {
-    // const timeSaved = this.state.timeSaved;
-
-    // timeSaved.push(event.target.value);
-
-    // this.setState({ timeSaved: timeSaved });
     this.setState({ show: false });
   }
 
-  handleShow(oneCategory) {
-    console.log(oneCategory);
-
-    this.setState({ show: true, categoryId: oneCategory._id });
-  }
-
-  genericOnChange(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+  handleShow() {
+    this.setState({ show: true });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target, "ffffffffff");
-
     const timeSaved = this.state.timeSaved;
 
-    timeSaved.push(this.state.inputTime);
+    postTime(this.state).then(response => {
+      console.log("add time", response.data);
 
-    this.setState({ timeSaved: timeSaved });
+      //timeSaved.push(this.state.inputTime);
+      this.setState({ timeSaved: response.data });
+    });
 
     console.log(timeSaved);
   }
 
   render() {
-    const { categoryArray } = this.state;
+    const { categoryArray, timeSaved } = this.state;
     console.log(categoryArray);
     console.log(this.state);
+
+    if (timeSaved) {
+      return <Redirect to="/dashboard" />;
+    }
+
     return (
       <section className="App ">
         <div className="container">
@@ -78,7 +72,7 @@ class Categories extends Component {
               return (
                 <Button
                   variant="secondary"
-                  onClick={() => this.handleShow(oneCategory)}
+                  onClick={this.handleShow}
                   className="item-btn icon-borders col-5 col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   key={oneCategory._id}
                 >
@@ -106,9 +100,9 @@ class Categories extends Component {
           <Modal.Body>
             <Form.Control
               name="inputTime"
+              value={this.state.inputTime}
               type="text"
               placeholder="Enter time in minutes"
-              onChange={event => this.genericOnChange(event)}
             />
           </Modal.Body>
           <Modal.Footer>

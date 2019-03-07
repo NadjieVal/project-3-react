@@ -62,3 +62,11 @@ export function postCategory(categorySubmission) {
     .post("/api/categories", categorySubmission)
     .catch(errorHandler);
 }
+export function postTime(timeSubmission) {
+  console.log(timeSubmission);
+  return backendApi.post("/api/dashboard", timeSubmission).catch(errorHandler);
+}
+
+export function getTimeList() {
+  return backendApi.get("/api/dashboard").catch(errorHandler);
+}

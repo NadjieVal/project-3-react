@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-import TabContainer from "react-bootstrap/TabContainer";
+import { getTimeList } from "../api.js";
+import { Link } from "react-router-dom";
 
-import Button from "react-bootstrap/Button";
 import "./Dashboard.css";
 import Chart from "./Chart.js";
 
@@ -23,47 +22,41 @@ class Dashboard extends Component {
     super(props);
 
     this.state = {
-      TimeSaved: "",
-      currentDate: "",
-      logo: ""
+      category: [],
+      timeSaved: []
     };
   }
+
+  componentDidMount() {
+    getTimeList().then(response => {
+      console.log("Time time time", response.data);
+      this.setState({ timeSaved: response.data });
+    });
+  }
+
   render() {
-    const timeSaved = [
-      { time: 8, createdAt: "2019-03-03T23:00:00.000Z" },
-      { time: 30, createdAt: "2019-03-03T23:00:00.000Z" },
-      { time: 15, createdAt: "2019-03-04T23:00:00.000Z" },
-      { time: 25, createdAt: "2019-03-05T23:00:00.000Z" },
-      { time: 5, createdAt: "2019-03-05T23:00:00.000Z" }
-    ];
+    const { timeSaved } = this.state;
+
     const totalMinutes = timeSaved.reduce(
       (sum, oneInput) => sum + oneInput.time,
       0
     );
     return (
       <section>
-        <h3>3h30</h3>
         <h3>{converted(totalMinutes)}</h3>
-        {/* <div>
-          
-          <p>Available Time</p> */}
-        {/* <p>{this.state.TimeSaved}</p> */}
         <Chart timeSaved={timeSaved} />
 
         <div>
-          <Button variant="secondary">Add Time</Button>
-          <Button variant="secondary">Spend Time</Button>
+          <Link to="/categories">
+            <button className="primary-btn">Add Time</button>
+          </Link>
+          <Link to="/charities">
+            <button className="primary-btn">Spend Time</button>
+          </Link>
         </div>
         <div>
           <h5>Recently Added</h5>
         </div>
-        {/* </div>
-       
-        <div>
-          <ul>
-            <li>LOGO + ACTIVITY + TIME SAVED</li>
-          </ul>
-        </div> */}
 
         <ListGroup>
           {/* map */}
@@ -71,7 +64,7 @@ class Dashboard extends Component {
             <Tab.Container>
               <Row className="list">
                 <Col className="leftside">
-                  <img src="./images/netflix_icon.png" />
+                  <img src="./images/netflix_icon.png" alt="icon" />
                   <div className="description">
                     <p>Netflix</p>
                     <p>Date</p>
