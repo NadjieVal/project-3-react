@@ -30,8 +30,8 @@ class Chart extends Component {
     console.log(ctx);
     const gradient = ctx.createLinearGradient(500, 0, 100, 0);
 
-    gradient.addColorStop(0, "rgba(128, 182, 244, 0.6)");
-    gradient.addColorStop(1, "rgba(244, 144, 128, 0.6)");
+    gradient.addColorStop(0, "rgba(61, 144, 222, 0.6)");
+    gradient.addColorStop(1, "rgba(122, 224, 235, 0.6)");
     return gradient;
   };
 
