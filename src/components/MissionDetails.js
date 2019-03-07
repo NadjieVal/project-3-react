@@ -13,7 +13,8 @@ class MissionDetails extends Component {
     this.state = {
       missionItem: {},
       missionAccomplished: false,
-      isMissionCheckout: false
+      isMissionCheckout: false,
+      duration: null
     };
   }
 
