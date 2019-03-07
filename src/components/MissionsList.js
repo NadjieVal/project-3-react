@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import "./MissionsList.css";
+import SearchBar from "../components/SearchBar.js";
 
 import { getMissionsList } from "../api.js";
 
@@ -15,13 +16,20 @@ class Charities extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      missionsArray: []
+      missionsArray: [],
+      searchTarget: ""
     };
   }
 
   componentDidMount() {
     getMissionsList().then(response => {
       this.setState({ missionsArray: response.data });
+    });
+  }
+
+  searchSubmit(userText) {
+    this.setState({
+      searchTarget: userText
     });
   }
 
@@ -32,9 +40,18 @@ class Charities extends Component {
         <div className="row justify-content-center">
           <h1>Available Missions</h1>
 
+          <SearchBar
+            searchSubmit={userText => this.searchSubmit(userText)}
+            searchString={this.state.searchTarget}
+            // searchFilter={this.state.searchTarget}
+          />
+
           {missionsArray.map(oneMission => {
+            // if (
+            //   missionsArray.charityName.indexOf(this.props.searchFilter) > -1
+            // ) {
             return (
-              <div className="container-fluid mission-cards justify-content-center">
+              <div className="container-fluid mission-cards card-shadow justify-content-center">
                 <div>
                   <div className="d-flex charity-content">
                     <div key={oneMission._id} className="col-lg-4">
@@ -72,48 +89,10 @@ class Charities extends Component {
                 </div>
               </div>
             );
+            // }
           })}
         </div>
       </section>
-      // {missionsArray.map(oneMission => {
-      //   return (
-      //     <div
-      //       className="card"
-      //       // style={{ width: 18 + `rem` }}
-      //       key={oneMission._id}
-      //     >
-      //       <div className="d-flex new-card">
-      //         <div>
-      //           <img
-      //             src={oneMission.charityLogo}
-      //             className="charity-logo"
-      //             alt="charity-logo"
-      //           />
-      //         </div>
-      //         <div className="mission-name">
-      //           <h3 className="card-title">{oneMission.missionName}</h3>
-      //           <p>{oneMission.charityName}</p>
-      //           <p>
-      //             {moment(oneMission.date).format("YYYY MM DD")} |{" "}
-      //             {oneMission.missionTime}
-      //           </p>
-      //         </div>
-      //       </div>
-      //       <div>
-      //         <p className="card-text description">
-      //           {oneMission.missionIntro}
-      //         </p>
-      //         {/* <a href="#" className="btn btn-primary"> */}
-      //         <a
-      //           href={missionAddress(oneMission)}
-      //           className="btn btn-primary"
-      //         >
-      //           See Details
-      //         </a>
-      //       </div>
-      //     </div>
-      //   );
-      // })}
     );
   }
 }

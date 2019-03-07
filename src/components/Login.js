@@ -44,7 +44,7 @@ class Login extends Component {
             </p>
 
             <form onSubmit={event => this.handleSubmit(event)}>
-              <label>Email:</label>
+              <label>Email</label>
               <input
                 onChange={event => this.genericOnChange(event)}
                 value={this.state.email}
@@ -52,7 +52,7 @@ class Login extends Component {
                 type="email"
               />
 
-              <label>Password:</label>
+              <label>Password</label>
               <input
                 onChange={event => this.genericOnChange(event)}
                 value={this.state.originalPassword}
