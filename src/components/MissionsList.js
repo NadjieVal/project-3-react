@@ -34,54 +34,51 @@ class Charities extends Component {
   }
 
   render() {
-    const { missionsArray } = this.state;
+    const { missionsArray, searchTarget } = this.state;
+
     return (
       <section div className="App container">
         <div className="marginBottom row justify-content-center">
           <h1>Available Missions</h1>
-
           <SearchBar
             searchSubmit={userText => this.searchSubmit(userText)}
-            searchString={this.state.searchTarget}
-            // searchFilter={this.state.searchTarget}
+            searchString={searchTarget}
+            searchFilter={searchTarget}
           />
-
           {missionsArray.map(oneMission => {
-            // if (
-            //   missionsArray.charityName.indexOf(this.props.searchFilter) > -1
-            // ) {
-            return (
-              <div
-                key={oneMission._id}
-                className="text-center col-lg-4 col-md-6 col-sm-12 mission-cards card-shadow justify-content-center"
-              >
-                <div className="addMargins d-flex flex-column align-items-center">
-                  <img
-                    src={oneMission.charityLogo}
-                    className="charity-logo"
-                    alt={oneMission.charityName}
-                  />
+            if (oneMission.charityName.indexOf(searchTarget) > -1) {
+              return (
+                <div
+                  key={oneMission._id}
+                  className="text-center col-lg-4 col-md-6 col-sm-12 mission-cards card-shadow justify-content-center"
+                >
+                  <div className="addMargins d-flex flex-column align-items-center">
+                    <img
+                      src={oneMission.charityLogo}
+                      className="charity-logo"
+                      alt={oneMission.charityName}
+                    />
 
-                  <h3 className="descriptionSize w-100">
-                    {oneMission.missionName}
-                  </h3>
-                  <p className="bold-text line-height">
-                    {oneMission.charityName}
-                  </p>
-                  <p className="line-height">
-                    {moment(oneMission.date).format("YYYY MM DD")} |{" "}
-                    {oneMission.missionTime}
-                  </p>
-                  <p className="descriptionSize w-100">
-                    {oneMission.missionIntro}
-                  </p>
-                  <Link to={missionAddress(oneMission)}>
-                    <button className="primary-btn">See Details</button>
-                  </Link>
+                    <h3 className="descriptionSize w-100">
+                      {oneMission.missionName}
+                    </h3>
+                    <p className="bold-text line-height">
+                      {oneMission.charityName}
+                    </p>
+                    <p className="line-height">
+                      {moment(oneMission.date).format("YYYY MM DD")} |{" "}
+                      {oneMission.missionTime}
+                    </p>
+                    <p className="descriptionSize w-100">
+                      {oneMission.missionIntro}
+                    </p>
+                    <Link to={missionAddress(oneMission)}>
+                      <button className="primary-btn">See Details</button>
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            );
-            // }
+              );
+            }
           })}
         </div>
       </section>
