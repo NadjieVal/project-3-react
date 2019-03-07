@@ -12,35 +12,26 @@ class Chart extends Component {
         datasets: [
           {
             label: "Netflix",
-            backgroundColor: "rgba(133, 104, 152, 0.75)",
-            data: [3, 3, 4, 4, 2, 8, 6]
+            backgroundColor: "rgba(122, 224, 235, 100)",
+            data: []
           },
-          // {
-          //   label: "Gaming",
-          //   backgroundColor: "rgba(170, 197, 213, 1)",
-          //   data: [6, 8, 2, 4, 2, 11, 14]
-          // },
           {
             label: "Social Media",
-            backgroundColor: "rgba(133, 104, 152, 0.75)",
-            data: [4, 5, 6, 4, 9, 10, 10]
+            backgroundColor: "rgba(122, 224, 235, 100)",
+            data: []
           }
         ]
       }
     };
   }
 
-  // componentDidMount() {
-  //   Axios.get()
-  //   this.setState({ :  });
-  // }
-
   setGradientColor = (canvas, color) => {
     const ctx = canvas.getContext("2d");
     console.log(ctx);
-    const gradient = ctx.createLinearGradient(0, 0, 600, 550);
-    gradient.addColorStop(0, color);
-    gradient.addColorStop(0.95, "rgba(133, 122, 144, 0.5)");
+    const gradient = ctx.createLinearGradient(500, 0, 100, 0);
+
+    gradient.addColorStop(0, "rgba(128, 182, 244, 0.6)");
+    gradient.addColorStop(1, "rgba(244, 144, 128, 0.6)");
     return gradient;
   };
 
@@ -65,7 +56,7 @@ class Chart extends Component {
       labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
       datasets: [
         {
-          backgroundColor: "rgba(133, 104, 152, 0.75)",
+          backgroundColor: "rgba(122, 224, 235, 100)",
           data: dayTotals
         }
       ]
@@ -77,7 +68,6 @@ class Chart extends Component {
   render() {
     return (
       <div className="chart">
-        <h3>Chart TimeFor</h3>
         <Line
           options={{ responsive: true }}
           data={this.getChartData}
