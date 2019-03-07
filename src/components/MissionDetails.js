@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import "./MissionDetails.css";
 
-import { getMissionDetails } from "../api.js";
+import { getMissionDetails, postMission } from "../api.js";
 
 import moment from "moment";
 
@@ -11,7 +11,9 @@ class MissionDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      missionItem: {}
+      missionItem: {},
+      missionAccomplished: false,
+      isMissionCheckout: false
     };
   }
 
@@ -22,8 +24,24 @@ class MissionDetails extends Component {
       this.setState({ missionItem: response.data });
     });
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log(event.target, "aaaa");
+
+    postMission(this.state).then(response => {
+      console.log("add mission", response.data);
+
+      this.setState({ isMissionCheckout: true });
+    });
+  }
   render() {
-    const { missionItem } = this.state;
+    const { missionItem, missionAccomplished } = this.state;
+
+    if (missionAccomplished) {
+      return <Redirect to="/your-missions" />;
+    }
+
     return (
       <section className="MissionDetails container">
         <div className="row justify-content-center">
@@ -55,7 +73,12 @@ class MissionDetails extends Component {
               <p>{missionItem.email}</p>
             </div>
             <Link to="/your-missions">
-              <button className="primary-btn">Book this mission</button>
+              <button
+                className="primary-btn"
+                onClick={event => this.handleSubmit(event)}
+              >
+                Book this mission
+              </button>
             </Link>
           </div>
         </div>
