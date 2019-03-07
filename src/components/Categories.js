@@ -33,8 +33,8 @@ class Categories extends Component {
     this.setState({ show: false });
   }
 
-  handleShow() {
-    this.setState({ show: true });
+  handleShow(oneCategory) {
+    this.setState({ categoryId: oneCategory._id, show: true });
   }
 
   handleSubmit(event) {
@@ -49,6 +49,11 @@ class Categories extends Component {
     });
 
     console.log(timeSaved);
+  }
+
+  genericOnChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -72,7 +77,7 @@ class Categories extends Component {
               return (
                 <Button
                   variant="secondary"
-                  onClick={this.handleShow}
+                  onClick={() => this.handleShow(oneCategory)}
                   className="item-btn icon-borders col-5 col-lg-4 col-md-4 col-sm-4 col-xs-4"
                   key={oneCategory._id}
                 >
@@ -101,6 +106,7 @@ class Categories extends Component {
             <Form.Control
               name="inputTime"
               value={this.state.inputTime}
+              onChange={event => this.genericOnChange(event)}
               type="text"
               placeholder="Enter time in minutes"
             />
