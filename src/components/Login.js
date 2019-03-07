@@ -34,7 +34,7 @@ class Login extends Component {
     ) : (
       <section className="Login container">
         <div className="row justify-content-center">
-          <div className="form-contain">
+          <div className="contain-center">
             <h2>Log In</h2>
             <p className="small-text">
               Don't have an account yet?{" "}
@@ -44,7 +44,7 @@ class Login extends Component {
             </p>
 
             <form onSubmit={event => this.handleSubmit(event)}>
-              <label>Email:</label>
+              <label>Email</label>
               <input
                 onChange={event => this.genericOnChange(event)}
                 value={this.state.email}
@@ -52,7 +52,7 @@ class Login extends Component {
                 type="email"
               />
 
-              <label>Password:</label>
+              <label>Password</label>
               <input
                 onChange={event => this.genericOnChange(event)}
                 value={this.state.originalPassword}

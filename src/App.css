@@ -1,7 +1,7 @@
-.App {
-  /* text-align: center; */
-  /* background-color: #f6f7f9; */
-}
+/* .App {
+  text-align: center;
+  background-color: #f6f7f9;
+} */
 
 .category-icons {
   max-height: 30px;
@@ -26,6 +26,11 @@
 
 /*** Typographic Elements ***/
 
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
 h2 {
   font-weight: 800;
 }
@@ -34,17 +39,29 @@ h4 {
   font-weight: 700;
 }
 
+h5 {
+  font-weight: 400;
+}
+
 .bold-text {
   font-weight: 500;
 }
 
 .description {
-  text-align: justify;
+  /* text-align: justify; */
+  margin: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .small-text {
   font-size: 14px;
   color: #666666;
+}
+
+.line-height {
+  padding-top: 0px;
+  margin-bottom: 0.5rem;
 }
 
 /*** Form Elements ***/
@@ -57,12 +74,13 @@ label {
 
 input {
   border: 1px solid #c2c5c4;
+  border-radius: 2px;
   width: 100%;
   padding: 4px;
   margin-bottom: 0.5rem;
 }
 
-.form-contain {
+.contain-center {
   text-align: center;
   width: 370px;
   padding: 1.5rem;
@@ -122,24 +140,62 @@ nav {
   -moz-box-shadow: 1px 0px 12px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 1px 0px 12px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 0px 12px rgba(0, 0, 0, 0.1);
-  /* padding: 10px; */
-  /* background: white; */
 }
 
 .tab-nav {
   width: 90%;
   display: flex;
   justify-content: space-evenly;
-  /* background-color: red; */
 }
 
 /*** Mission Pages ***/
 
 .charity-logo {
-  margin: 30px;
-  width: 300px;
+  padding-top: 0px;
+  width: 270px;
 }
 
 .mission-name {
   margin: 30px 0px;
+}
+
+.mission-cards {
+  border: 1px solid #d6d6d6;
+  border-radius: 3px;
+  background-color: white;
+  padding: 30px 15px;
+  margin: 15px;
+}
+
+.card-shadow {
+  position: relative;
+  -moz-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mission-card-btn {
+  text-align: center;
+}
+
+.search-btn {
+  color: white;
+  background-color: #3d90de;
+  border-radius: 2px;
+  border: none;
+  padding: 0px 16px;
+  margin: 0px;
+  margin-left: 10px;
+}
+
+@media (max-width: 991px) {
+  .charity-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .charity-content-margin {
+    margin-top: 20px;
+  }
 }

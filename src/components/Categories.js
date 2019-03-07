@@ -47,6 +47,7 @@ class Categories extends Component {
   genericOnChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+    this.setState({ categoryId: oneCategory._id, show: true });
   }
 
   handleSubmit(event) {
@@ -63,6 +64,11 @@ class Categories extends Component {
     });
 
     console.log(timeSaved);
+  }
+
+  genericOnChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -115,6 +121,7 @@ class Categories extends Component {
             <Form.Control
               name="inputTime"
               value={this.state.inputTime}
+              onChange={event => this.genericOnChange(event)}
               type="text"
               placeholder="Enter time in minutes"
               onChange={event => this.genericOnChange(event)}

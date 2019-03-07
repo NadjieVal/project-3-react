@@ -8,11 +8,11 @@ import Signup from "./components/Signup.js";
 import Categories from "./components/Categories.js";
 import Charities from "./components/MissionsList.js";
 import MissionDetails from "./components/MissionDetails.js";
-import YourMissions from "./components/YourMissions";
-import AddCategory from "./components/AddCategory";
+import YourMissions from "./components/YourMissions.js";
+import AddCategory from "./components/AddCategory.js";
 import Home from "./components/Home.js";
 import Profile from "./components/Profile.js";
-import { getLogOut } from "./api.js";
+// import { getLogOut } from "./api.js";
 
 class App extends Component {
   constructor(props) {
@@ -37,13 +37,13 @@ class App extends Component {
     this.setState({ project3User: newUser });
   }
 
-  logoutClick() {
-    getLogOut().then(response => {
-      console.log("Log Out", response.data);
-      this.setState({ submitted: true });
-      this.updateUser(null);
-    });
-  }
+  // logoutClick() {
+  //   getLogOut().then(response => {
+  //     console.log("Log Out", response.data);
+  //     this.setState({ submitted: true });
+  //     this.updateUser(null);
+  //   });
+  // }
 
   render() {
     console.log(this.state);
@@ -133,11 +133,11 @@ class App extends Component {
                     className="icon"
                   />
                 </NavLink>
-                <span>
+                {/* <span>
                   <NavLink to="/logout" onClick={() => this.logoutClick()}>
                     Log Out
                   </NavLink>
-                </span>
+                </span> */}
               </span>
             ) : (
               <span />

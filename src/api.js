@@ -70,3 +70,15 @@ export function postTime(timeSubmission) {
 export function getTimeList() {
   return backendApi.get("/api/dashboard").catch(errorHandler);
 }
+
+export function getMissionHistory(missionSubmission) {
+  return backendApi
+    .get("/api/your-missions", missionSubmission)
+    .catch(errorHandler);
+}
+
+export function postMission(missionSubmission) {
+  return backendApi
+    .post("/api/your-missions", missionSubmission)
+    .catch(errorHandler);
+}

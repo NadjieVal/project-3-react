@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./MissionsList.css";
+import SearchBar from "../components/SearchBar.js";
 
 import { getMissionsList } from "../api.js";
 
@@ -14,7 +16,8 @@ class Charities extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      missionsArray: []
+      missionsArray: [],
+      searchTarget: ""
     };
   }
 
@@ -24,49 +27,72 @@ class Charities extends Component {
     });
   }
 
+  searchSubmit(userText) {
+    this.setState({
+      searchTarget: userText
+    });
+  }
+
   render() {
     const { missionsArray } = this.state;
     return (
       <section div className="App container">
-        <div className="row  justify-content-center">
+        <div className="row justify-content-center">
+          <h1>Available Missions</h1>
+
+          <SearchBar
+            searchSubmit={userText => this.searchSubmit(userText)}
+            searchString={this.state.searchTarget}
+            // searchFilter={this.state.searchTarget}
+          />
+
           {missionsArray.map(oneMission => {
+            // if (
+            //   missionsArray.charityName.indexOf(this.props.searchFilter) > -1
+            // ) {
             return (
               <div
-                className="card"
-                // style={{ width: 18 + `rem` }}
                 key={oneMission._id}
+                className="container-fluid mission-cards card-shadow justify-content-center"
               >
-                <div className="d-flex new-card">
-                  <div>
-                    <img
-                      src={oneMission.charityLogo}
-                      className="charity-logo"
-                      alt="charity-logo"
-                    />
-                  </div>
-                  <div className="mission-name">
-                    <h3 className="card-title">{oneMission.missionName}</h3>
-                    <p>{oneMission.charityName}</p>
-                    <p>
-                      {moment(oneMission.date).format("YYYY MM DD")} |{" "}
-                      {oneMission.missionTime}
-                    </p>
-                  </div>
-                </div>
                 <div>
-                  <p className="card-text description">
-                    {oneMission.missionIntro}
-                  </p>
+                  <div className="d-flex charity-content">
+                    <div className="col-lg-4">
+                      <img
+                        src={oneMission.charityLogo}
+                        className="charity-logo"
+                        alt={oneMission.charityName}
+                      />
+                    </div>
 
-                  <a
-                    href={missionAddress(oneMission)}
-                    className="btn btn-primary"
-                  >
-                    See Details
-                  </a>
+                    <div className="charity-content col-lg-8">
+                      <div className="charity-content-margin">
+                        <h3>{oneMission.missionName}</h3>
+                        <p className="bold-text line-height">
+                          {oneMission.charityName}
+                        </p>
+                        <p className="line-height">
+                          {moment(oneMission.date).format("YYYY MM DD")} |{" "}
+                          {oneMission.missionTime}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-12">
+                    <p className="">{oneMission.missionIntro}</p>
+                    <div className="mission-card-btn">
+                      <span>
+                        <Link to={missionAddress(oneMission)}>
+                          <button className="primary-btn">See Details</button>
+                        </Link>
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
+            // }
           })}
         </div>
       </section>
