@@ -74,6 +74,7 @@ label {
 
 input {
   border: 1px solid #c2c5c4;
+  border-radius: 2px;
   width: 100%;
   padding: 4px;
   margin-bottom: 0.5rem;
@@ -166,8 +167,25 @@ nav {
   margin: 15px;
 }
 
+.card-shadow {
+  position: relative;
+  -moz-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+}
+
 .mission-card-btn {
   text-align: center;
+}
+
+.search-btn {
+  color: white;
+  background-color: #3d90de;
+  border-radius: 2px;
+  border: none;
+  padding: 0px 16px;
+  margin: 0px;
+  margin-left: 10px;
 }
 
 @media (max-width: 991px) {
