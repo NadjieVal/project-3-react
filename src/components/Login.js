@@ -34,7 +34,7 @@ class Login extends Component {
     ) : (
       <section className="Login container">
         <div className="row justify-content-center">
-          <div className="form-contain">
+          <div className="contain-center">
             <h2>Log In</h2>
             <p className="small-text">
               Don't have an account yet?{" "}

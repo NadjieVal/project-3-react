@@ -8,9 +8,13 @@ class Home extends Component {
     return (
       <section className="Home container">
         <div className="row justify-content-center">
-          <div className="form-contain">
+          <div className="contain-center">
             <div className="branding">
-              <img src="./images/timefor_logo.png" className="logo" />
+              <img
+                src="./images/timefor_logo.png"
+                className="logo"
+                alt="TimeFor"
+              />
               <h2>TimeFor</h2>
             </div>
             <div className="auth-entry">
