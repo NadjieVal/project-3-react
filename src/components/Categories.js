@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./Categories.css";
 
-import { getCategoryList } from "../api.js";
+import { getCategoryList, postTime } from "../api.js";
 
 class Categories extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Categories extends Component {
     this.state = {
       categoryArray: [],
       show: false,
-      timeSaved: [],
+      timeSaved: null,
       inputTime: "",
       categoryId: null
     };
@@ -55,17 +55,25 @@ class Categories extends Component {
 
     const timeSaved = this.state.timeSaved;
 
-    timeSaved.push(this.state.inputTime);
+    postTime(this.state).then(response => {
+      console.log("add time", response.data);
 
-    this.setState({ timeSaved: timeSaved });
+      //timeSaved.push(this.state.inputTime);
+      this.setState({ timeSaved: response.data });
+    });
 
     console.log(timeSaved);
   }
 
   render() {
-    const { categoryArray } = this.state;
+    const { categoryArray, timeSaved } = this.state;
     console.log(categoryArray);
     console.log(this.state);
+
+    if (timeSaved) {
+      return <Redirect to="/dashboard" />;
+    }
+
     return (
       <section className="App ">
         <div className="container">
@@ -106,6 +114,7 @@ class Categories extends Component {
           <Modal.Body>
             <Form.Control
               name="inputTime"
+              value={this.state.inputTime}
               type="text"
               placeholder="Enter time in minutes"
               onChange={event => this.genericOnChange(event)}
