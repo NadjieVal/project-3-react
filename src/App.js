@@ -37,14 +37,6 @@ class App extends Component {
     this.setState({ project3User: newUser });
   }
 
-  // logoutClick() {
-  //   getLogOut().then(response => {
-  //     console.log("Log Out", response.data);
-  //     this.setState({ submitted: true });
-  //     this.updateUser(null);
-  //   });
-  // }
-
   render() {
     console.log(this.state);
     return (
@@ -73,17 +65,6 @@ class App extends Component {
               );
             }}
           />
-          <Route
-            path="/logout"
-            render={() => {
-              return (
-                <Home
-                  project3User={this.state.project3User}
-                  logoutSuccess={newUser => this.updateUser(newUser)}
-                />
-              );
-            }}
-          />
 
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/categories" component={Categories} />
@@ -92,10 +73,14 @@ class App extends Component {
           <Route
             path="/profile"
             render={() => {
-              return <Profile project3User={this.state.project3User} />;
+              return (
+                <Profile
+                  project3User={this.state.project3User}
+                  logoutSuccess={newUser => this.updateUser(newUser)}
+                />
+              );
             }}
           />
-
           <Route path="/your-missions" component={YourMissions} />
           <Route path="/add-category" component={AddCategory} />
 
