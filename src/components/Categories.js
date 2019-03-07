@@ -66,19 +66,22 @@ class Categories extends Component {
     }
 
     return (
-      <section className="App ">
-        <div className="container">
-          <div className="col-12">
-            <h1>Which activity do you want to save time from?</h1>
-          </div>
+      <section className="App container text-center">
+        <h1>From which activity do you want to save time?</h1>
+        {/* <div className="col-12" /> */}
 
-          <ul className="row">
-            {categoryArray.map(oneCategory => {
-              return (
+        <ul className="row justify-content-center w-100">
+          {categoryArray.map(oneCategory => {
+            return (
+              <li className="col-lg-4 col-md-6 col-sm-6 w-100">
                 <Button
                   variant="secondary"
                   onClick={() => this.handleShow(oneCategory)}
+<<<<<<< HEAD
                   className="item-btn icon-borders col-5"
+=======
+                  className="item-btn icon-borders w-100"
+>>>>>>> 72279ed23eb6188d500ab9878c863a7b907dc8d0
                   key={oneCategory._id}
                 >
                   <img
@@ -86,12 +89,12 @@ class Categories extends Component {
                     className="img-fluid item-logo"
                     alt="foo"
                   />
-                  <p className="px-2">{oneCategory.name}</p>
+                  <p className="">{oneCategory.name}</p>
                 </Button>
-              );
-            })}
-          </ul>
-        </div>
+              </li>
+            );
+          })}
+        </ul>
         <Modal
           show={this.state.show}
           onHide={event => this.handleClose(event)}
