@@ -100,7 +100,9 @@ class Dashboard extends Component {
                       <img src={oneCategory.category.icon} alt="icon" />
 
                       <div className="description">
-                        <p>{oneCategory.category.name}</p>
+                        <p className="recently-added">
+                          {oneCategory.category.name}
+                        </p>
 
                         {/* {timeSaved.map(oneTime => (
                           <p>{oneTime}</p>
@@ -109,7 +111,9 @@ class Dashboard extends Component {
                       </div>
                     </Col>
                     <Col className="rightside">
-                      <h2>{converted(oneCategory.time)}</h2>
+                      <h2 className="time-detail">
+                        {converted(oneCategory.time)}
+                      </h2>
                     </Col>
                   </Row>
                 </Tab.Container>

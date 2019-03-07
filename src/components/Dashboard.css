@@ -42,3 +42,10 @@
   margin: 0;
   padding-top: 0;
 }
+
+.recently-added {
+  font-weight: 500;
+}
+.time-detail {
+  font-size: 22px;
+}
