@@ -33,7 +33,7 @@ class YourMissions extends Component {
         <div className="YourMissions">
           <h3>The Missions you've accomplished!</h3>
           <div>
-            <div missionAccomplished={missionAccomplished}>
+            <div>
               <div className="container">
                 <div className="row">
                   <div className="col-8">
