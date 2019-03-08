@@ -25,39 +25,28 @@ class YourMissions extends Component {
     return (
       <section div className="App container">
         <div className="marginBottom row justify-content-center">
-          {/* <div className="YourMissions"> */}
           <h1 className="col-12">Accomplished Missions</h1>
-          {/* <div> */}
+
           {missionAccomplished.map(oneMission => {
             return (
               <div
                 key={oneMission._id}
-                // className="col-12 d-flex history-card"
                 className="text-center col-lg-4 col-md-6 col-sm-12 justify-content-center"
               >
-                {/* <div className=""> */}
-                <div
-                  // className="col-6 padding-left"
-                  className="history-card d-flex flex-column align-items-center"
-                >
+                <div className="history-card d-flex flex-column align-items-center">
                   <img
                     src={oneMission.charityLogo}
                     className="charity-logo"
                     alt={oneMission.charityName}
                   />
-                  {/* </div> */}
-                  {/* <div className="col-6 line-height remove-padding"> */}
                   <p className="bold-text line-height">
                     {oneMission.missionName}
                   </p>
                   <p className="line-height">{oneMission.charityName}</p>
                 </div>
-                {/* </div>   */}
               </div>
             );
           })}
-          {/* </div> */}
-          {/* </div> */}
         </div>
       </section>
     );
