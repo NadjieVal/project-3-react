@@ -4,10 +4,17 @@
 /* .icon-borders {
   border: solid lightgray 1;
 } */
+
 .btn-secondary {
   background-color: white !important;
   color: black;
 }
+
+.btn-secondary:hover {
+  color: #3d90de;
+  border-color: #3d90de;
+}
+
 ul {
   list-style-type: none;
   padding-inline-start: 0;
@@ -48,4 +55,12 @@ p {
   -moz-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+}
+
+.h1-cat_margin {
+  margin: 40px 0;
+}
+
+section .link-margin {
+  margin-top: 10px;
 }
