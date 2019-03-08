@@ -235,12 +235,12 @@ nav {
   background-color: white;
   padding: 20px 20px 10px;
   margin: 15px 0;
+  height: 140px;
 }
 
 .history-logos {
-  /* max-height: 70px;
-  max-width: auto; */
-  object-fit: scale-down;
+  object-fit: contain;
+  max-height: 100%;
 }
 
 .padding-left {
