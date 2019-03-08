@@ -50,7 +50,7 @@ class Charities extends Component {
               return (
                 <div
                   key={oneMission._id}
-                  className="text-center col-lg-4 col-md-6 col-sm-12 mission-cards card-shadow justify-content-center"
+                  className="text-center col-lg-4 col-md-6 col-sm-12 card-shadow justify-content-center"
                 >
                   <div className="addMargins d-flex flex-column align-items-center">
                     <img

@@ -71,11 +71,12 @@ class Dashboard extends Component {
     console.log(totalMinutes - missionMinutes);
     return (
       <section className="App container">
-        <h1>Time Saved</h1>
+        <h3 className="text-center">Your Dashboard</h3>
         <div className="dashboard-bg">
-          <h3 className="text-center">
+          <h1 className="text-center">
             {converted(totalMinutes - missionMinutes)}
-          </h3>
+          </h1>
+          <p className="text-center line-height">Time Saved</p>
           <Chart timeSaved={timeSaved} />
 
           <div className="text-center d-flex justify-content-center">
