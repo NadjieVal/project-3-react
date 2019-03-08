@@ -67,10 +67,12 @@ class Categories extends Component {
 
     return (
       <section className="App container text-center marginBottom ">
-        <h1>From which activity do you want to save time?</h1>
+        <h1 className="h1-cat_margin">
+          From which activity do you want to save time?
+        </h1>
         {/* <div className="col-12" /> */}
 
-        <ul className=" row justify-content-center w-100">
+        <ul className=" row justify-content-center">
           {categoryArray.map(oneCategory => {
             return (
               <li className="col-lg-4 col-md-6 col-sm-6 w-100">
@@ -122,6 +124,9 @@ class Categories extends Component {
         </Modal>
 
         <Link to="/add-category">Add new category</Link>
+        <div className="link-margin">
+          <Link to="/dashboard">Go back</Link>
+        </div>
       </section>
     );
   }

@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 // import Col from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { postCategory } from "../api.js";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 import "./AddCategory.css";
 
@@ -37,15 +37,41 @@ class AddCategory extends Component {
       <Redirect to="/categories" />
     ) : (
       <section>
-        <h3 className="h3-add-category">Create custom category</h3>
-
         <div className="container">
-          <img
-            src="/images/default_icon.png"
-            alt="clock_icon"
-            className="custom"
-          />
+          <h3 className="h3-add-category text-center">
+            Create custom category
+          </h3>
+          <div className="row">
+            <div className="col-lg-4 col-md-6 col-sm-8 m-auto text-center">
+              <img
+                src="/images/default_icon.png"
+                alt="clock_icon"
+                className="custom mr-0"
+              />
+              <div className="form-group w-100 ">
+                <input
+                  type="custom"
+                  className="form-control input-style w-100 text-center bottom-blue"
+                  id="exampleInputCategory"
+                  placeholder="Enter category title here"
+                  name="category"
+                  onChange={event => this.genericOnChange(event)}
+                />
+              </div>
+              <button
+                onClick={event => this.addCategory(event)}
+                className="primary-btn"
+              >
+                Save new category
+              </button>
+              <div>
+                <Link to="/categories">Go back</Link>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        {/* <div className="container">
           <Form.Control
             className="input-style"
             type="custom"
@@ -56,7 +82,7 @@ class AddCategory extends Component {
         </div>
         <Button onClick={event => this.addCategory(event)}>
           Save new category
-        </Button>
+        </Button> */}
       </section>
     );
   }
