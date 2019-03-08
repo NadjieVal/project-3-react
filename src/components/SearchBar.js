@@ -18,9 +18,9 @@ class SearchBar extends Component {
   render() {
     return (
       <section className="SearchBar container">
-        <form className="d-flex">
+        <form className="d-flex search-margin">
           <input
-            className="Input"
+            className="search-input"
             onChange={event => this.genericOnChange(event)}
             value={this.props.searchString}
             type="text"

@@ -87,8 +87,8 @@ class App extends Component {
           <Route component={NotFound} />
         </Switch>
         <footer>
-          <nav className="container-fluid boxshadow">
-            {this.state.project3User ? (
+          {this.state.project3User ? (
+            <nav className="container-fluid boxshadow">
               <span className="tab-nav">
                 <NavLink to="/dashboard">
                   <img
@@ -124,10 +124,10 @@ class App extends Component {
                   </NavLink>
                 </span> */}
               </span>
-            ) : (
-              <span />
-            )}
-          </nav>
+            </nav>
+          ) : (
+            <span />
+          )}
         </footer>
       </div>
     );
