@@ -115,6 +115,9 @@ class MissionDetails extends Component {
                   Book this mission
                 </button>
               </Link>
+              <div className="link-margin">
+                <Link to="/charities">Cancel</Link>
+              </div>
             </div>
           </div>
         </div>
