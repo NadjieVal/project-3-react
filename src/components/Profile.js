@@ -31,14 +31,20 @@ class Profile extends Component {
 
     return (
       <section className="Profile container">
+        <h1 className="h1-profile">Profile </h1>
         <div className="marginBottom row justify-content-center marginSides">
           <div className="h-auto col-lg-6 col-md-8 col-sm-10 m-auto addMargins d-flex flex-column align-items-center">
-            <h1>Profile</h1>
-            <p>avatar</p>
+            <p>
+              <img
+                className="avatar remove-padding"
+                src="/images/avatar_icon.svg"
+                alt="avatar_icon"
+              />
+            </p>
             <h3>
               {project3User.firstName} {project3User.lastName}
             </h3>
-            <p className="line-height">{project3User.email}</p>
+            <p className="line-height size">{project3User.email}</p>
 
             <button className="primary-btn" onClick={() => this.logoutClick()}>
               Log Out

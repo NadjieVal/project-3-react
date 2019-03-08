@@ -90,6 +90,9 @@ input {
   color: #3d90de;
   text-decoration: none;
 }
+a:hover {
+  text-decoration: none;
+}
 
 .primary-btn {
   color: white;

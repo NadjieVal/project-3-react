@@ -9,21 +9,41 @@
   color: black;
 }
 
-.input-style {
+/* .input-style {
   margin-top: 10px;
-  border-color: transparent;
   box-shadow: none;
+  border-color: transparent;
   background-color: transparent;
-  border-bottom: 2px solid blue;
   border-radius: 0;
   width: 200px;
-  text-align: left;
-}
+  text-align: center;
+} */
 
 .h3-add-category {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
+
+.bottom-blue {
+  border-bottom: 2px solid blue;
+  /* outline: none !important; */
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border-top: 0px solid transparent !important;
+  border-left: 0px solid transparent !important;
+  border-right: 0px solid transparent !important;
+}
+
+/* input:focus,
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border-top: 1px solid transparent !important;
+  border-left: 1px solid transparent !important;
+  border-right: 1px solid transparent !important;
+  border-bottom: 2px solid blue;
+} */
 
 /* .container {
   display: flex;
