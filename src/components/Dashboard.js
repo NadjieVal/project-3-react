@@ -97,10 +97,10 @@ class Dashboard extends Component {
               <ListGroup.Item className="cards" key={oneCategory._id}>
                 <Tab.Container>
                   <Row className="list">
-                    <Col className="leftside">
+                    <Col sm={12} className=" leftside align-middle w-100">
                       <img src={oneCategory.category.icon} alt="icon" />
 
-                      <div className="description">
+                      <div className="description w-100">
                         <p className="recently-added">
                           {oneCategory.category.name}
                         </p>
@@ -110,8 +110,6 @@ class Dashboard extends Component {
                         ))} */}
                         <p>{moment(oneCategory.createdAt).format("MMM Do")}</p>
                       </div>
-                    </Col>
-                    <Col className="rightside">
                       <h2 className="time-detail">
                         {converted(oneCategory.time)}
                       </h2>
