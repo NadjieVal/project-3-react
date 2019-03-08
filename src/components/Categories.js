@@ -108,9 +108,8 @@ class Categories extends Component {
               name="inputTime"
               value={this.state.inputTime}
               onChange={event => this.genericOnChange(event)}
-              type="text"
+              type="number"
               placeholder="Enter time in minutes"
-              onChange={event => this.genericOnChange(event)}
             />
           </Modal.Body>
           <Modal.Footer>
