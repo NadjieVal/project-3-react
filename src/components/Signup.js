@@ -39,7 +39,7 @@ class Signup extends Component {
       <section className="Signup container">
         <div className="row justify-content-center">
           {project3User ? (
-            <Redirect to="/" />
+            <Redirect to="/categories" />
           ) : (
             <div className="contain-center">
               <h2>Sign Up</h2>
