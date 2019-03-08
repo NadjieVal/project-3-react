@@ -23,28 +23,37 @@ class YourMissions extends Component {
   render() {
     const { missionAccomplished } = this.state;
     return (
-      <section>
-        <div className="YourMissions">
-          <h3>The Missions you've accomplished!</h3>
+      <section div className="App container">
+        <div className="marginBottom row justify-content-center marginSides">
+          {/* <div className="YourMissions"> */}
+          <h1>Accomplished Missions</h1>
           <div>
             {missionAccomplished.map(oneMission => {
               return (
-                <div key={oneMission._id}>
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-8">
-                        <img src={oneMission.charityLogo} alt="charityLogo" />
-                        <div className="col-4">
-                          <p>{oneMission.charityName}</p>
-                          <p>{oneMission.missionName}</p>
-                        </div>
-                      </div>
-                    </div>
+                <div
+                  key={oneMission._id}
+                  className="col-12 d-flex history-card"
+                >
+                  {/* <div className=""> */}
+                  <div className="col-6 padding-left">
+                    <img
+                      src={oneMission.charityLogo}
+                      className="w-100 remove-padding"
+                      alt={oneMission.charityName}
+                    />
                   </div>
+                  <div className="col-6 line-height remove-padding">
+                    <p className="bold-text line-height">
+                      {oneMission.missionName}
+                    </p>
+                    <p className="line-height">{oneMission.charityName}</p>
+                  </div>
+                  {/* </div>   */}
                 </div>
               );
             })}
           </div>
+          {/* </div> */}
         </div>
       </section>
     );
