@@ -38,7 +38,7 @@ class YourMissions extends Component {
                   <div className="col-6 padding-left">
                     <img
                       src={oneMission.charityLogo}
-                      className="w-100 remove-padding"
+                      className="history-logos w-100 remove-padding"
                       alt={oneMission.charityName}
                     />
                   </div>
